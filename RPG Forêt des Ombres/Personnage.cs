@@ -41,6 +41,12 @@ namespace RPG_Forêt_des_Ombres
             return this.degatsPersonnage;
         }
 
+        //Setters
+        public void AjouterPointVie(int pointVieSuplementaire)
+        {
+            this.pointsViePersonnage = this.pointsViePersonnage + pointVieSuplementaire;
+        }
+
         //Methode
         public void RecevoirDesDegats(int degats)
         {

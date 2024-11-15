@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RPG_Forêt_des_Ombres
+{
+    internal class Personnage
+    {
+        //Variable
+        private string nomPersonnage;
+        private string descriptionPersonnage;
+        private int pointsViePersonnage;
+        private int degatsPersonnage;
+
+        //Constructeur
+        public Personnage(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage)
+        {
+            this.nomPersonnage = leNomPersonnage;
+            this.descriptionPersonnage = laDescriptionPersonnage;
+            this.pointsViePersonnage = lesPointsViePersonnage;
+            this.degatsPersonnage = lesDegatsPersonnage;
+        }
+
+        //Getters
+        public string GetNomPersonnage()
+        {
+            return this.nomPersonnage;
+        }
+        public string GetDescriptionPersonnage()
+        {
+            return this.descriptionPersonnage;
+        }
+        public int GetPointsViePersonnage()
+        {
+            return this.pointsViePersonnage;
+        }
+        public int GetDegatPersonnage()
+        {
+            return this.degatsPersonnage;
+        }
+
+        //Methode
+        public void RecevoirDesDegats(int degats)
+        {
+            pointsViePersonnage -= degats;
+        }
+        public void Attaquer(Personnage cible)
+        {
+            cible.RecevoirDesDegats(this.degatsPersonnage);
+        }
+    }
+}

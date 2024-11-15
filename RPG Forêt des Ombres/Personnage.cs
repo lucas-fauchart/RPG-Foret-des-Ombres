@@ -52,7 +52,7 @@ namespace RPG_Forêt_des_Ombres
         {
             pointsViePersonnage -= degats;
         }
-        public void Attaquer(Personnage cible)
+        public virtual void Attaquer(Personnage cible)
         {
             cible.RecevoirDesDegats(this.degatsPersonnage);
         }

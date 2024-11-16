@@ -9,8 +9,8 @@ namespace RPG_Forêt_des_Ombres
     internal class Objet
     {
         //Variable
-        public string nomObjet;
-        public string descriptionObjet;
+        private string nomObjet;
+        private string descriptionObjet;
 
         //Constructeur
         public Objet(string leNomObjet, string laDescriptionObjet)

@@ -10,8 +10,8 @@ namespace RPG_Forêt_des_Ombres
     internal class Ennemi : Personnage
     {
         //Variable
-        public string typeEnnemi;
-        public int degatsSupplementaires;
+        private string typeEnnemi;
+        private int degatsSupplementaires;
 
         // Constructeur
         public Ennemi(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, string unTypeEnnemi, int lesDegatsSupplementaires) :

@@ -14,8 +14,8 @@ namespace RPG_Forêt_des_Ombres
         private int degatsSupplementaires;
 
         // Constructeur
-        public Ennemi(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, string unTypeEnnemi, int lesDegatsSupplementaires) :
-            base(leNomPersonnage, laDescriptionPersonnage, lesPointsViePersonnage, lesDegatsPersonnage)
+        public Ennemi(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, Image uneImagePersonnage, string unTypeEnnemi, int lesDegatsSupplementaires) :
+            base(leNomPersonnage, laDescriptionPersonnage, lesPointsViePersonnage, lesDegatsPersonnage, uneImagePersonnage)
         {
             this.typeEnnemi = unTypeEnnemi;
             this.degatsSupplementaires = lesDegatsSupplementaires;

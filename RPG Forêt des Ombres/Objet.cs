@@ -11,12 +11,14 @@ namespace RPG_Forêt_des_Ombres
         //Variable
         private string nomObjet;
         private string descriptionObjet;
+        private Image imageObjet;
 
         //Constructeur
-        public Objet(string leNomObjet, string laDescriptionObjet)
+        public Objet(string leNomObjet, string laDescriptionObjet, Image uneImageObjet)
         {
             this.nomObjet = leNomObjet;
             this.descriptionObjet = laDescriptionObjet;
+            this.imageObjet = uneImageObjet;
         }
 
         //Getters
@@ -24,9 +26,13 @@ namespace RPG_Forêt_des_Ombres
         {
             return this.nomObjet;
         }
-        public string GetDescriptionOBJET()
+        public string GetDescriptionObjet()
         {
             return this.descriptionObjet;
+        }
+        public Image GetImageObjet()
+        {
+            return this.imageObjet;
         }
 
         // Méthode virtuelle pour permettre une redéfinition

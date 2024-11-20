@@ -13,14 +13,16 @@ namespace RPG_Forêt_des_Ombres
         private string descriptionPersonnage;
         private int pointsViePersonnage;
         private int degatsPersonnage;
+        private Image imagePersonnage;
 
         //Constructeur
-        public Personnage(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage)
+        public Personnage(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, Image uneImagePersonnage)
         {
             this.nomPersonnage = leNomPersonnage;
             this.descriptionPersonnage = laDescriptionPersonnage;
             this.pointsViePersonnage = lesPointsViePersonnage;
             this.degatsPersonnage = lesDegatsPersonnage;
+            this.imagePersonnage = uneImagePersonnage;
         }
 
         //Getters
@@ -39,6 +41,10 @@ namespace RPG_Forêt_des_Ombres
         public int GetDegatPersonnage()
         {
             return this.degatsPersonnage;
+        }
+        public Image GetImagePersonnage()
+        {
+            return this.imagePersonnage;
         }
 
         //Setters

@@ -14,7 +14,9 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnChargerPartie_Click(object sender, EventArgs e)
         {
-
+            //Permet d'ouvrir la fenêtre
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
         }
     }
 }

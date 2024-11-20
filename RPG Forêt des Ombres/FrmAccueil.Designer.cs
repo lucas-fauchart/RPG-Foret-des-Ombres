@@ -32,6 +32,9 @@
             pictureBox1 = new PictureBox();
             BtnNouvellePartie = new Button();
             BtnChargerPartie = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -84,12 +87,48 @@
             BtnChargerPartie.UseVisualStyleBackColor = false;
             BtnChargerPartie.Click += BtnChargerPartie_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.MediumSeaGreen;
+            label1.Location = new Point(63, 442);
+            label1.Name = "label1";
+            label1.Size = new Size(295, 98);
+            label1.TabIndex = 3;
+            label1.Text = "Forêt";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Showcard Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.LimeGreen;
+            label2.Location = new Point(334, 462);
+            label2.Name = "label2";
+            label2.Size = new Size(139, 74);
+            label2.TabIndex = 4;
+            label2.Text = "DES";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(457, 420);
+            label3.Name = "label3";
+            label3.Size = new Size(451, 124);
+            label3.TabIndex = 5;
+            label3.Text = "Ombres";
+            // 
             // FrmAccueil
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SaddleBrown;
             ClientSize = new Size(982, 553);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(BtnChargerPartie);
             Controls.Add(BtnNouvellePartie);
             Controls.Add(pictureBox1);
@@ -103,6 +142,7 @@
             Load += FrmAccueil_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -110,5 +150,8 @@
         private PictureBox pictureBox1;
         private Button BtnNouvellePartie;
         private Button BtnChargerPartie;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }

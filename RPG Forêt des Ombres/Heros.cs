@@ -11,28 +11,52 @@ namespace RPG_Forêt_des_Ombres
         //Varible
         private int experience;
         private int niveau;
-        private Dictionary<string, int> inventaire = new Dictionary<string, int>();
+        //private Dictionary<string, List<Objet>> inventaire = new Dictionary<string, List<Objet>>();
 
         //Constructeur
-        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, int uneExperience, int niveau, Dictionary<string, int> unInventaire) :
-            base(nomPersonnage, descriptionPersonnage, lesPointsViePersonnage, lesDegatsPersonnage)
+        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau /*Dictionary<string, int> unInventaire*/) :
+            base(nomPersonnage, descriptionPersonnage, lesPointsViePersonnage, lesDegatsPersonnage, uneImagePersonnage)
         {
             this.experience = uneExperience;
             this.niveau = niveau;
-            this.inventaire = unInventaire;
+            //this.inventaire = unInventaire;
         }
-
+        public int GetExperience()
+        {
+            return experience;
+        }
+        public int GetNiveau()
+        {
+            return niveau;
+        }
+        /*public Dictionary<string, int> GetInventaire()
+        {
+            return inventaire;
+        }
+        
         public void UtiliserObjet(string nomObjet)
         {
             // Exemple de logique pour une potion
-            if (inventaire.ContainsKey(nomObjet) && inventaire[nomObjet] > 0)
+            if (this.inventaire.ContainsKey(nomObjet) && this.inventaire[nomObjet] > 0)
             {
                 if (nomObjet == "Potion")
                 {
                     AjouterPointVie(10);
-                    inventaire[nomObjet]--;
+                    this.inventaire[nomObjet]--;
                 }
             }
-        } 
+        }
+
+        public void AjouterObjet(Objet objet)
+        {
+            if (this.inventaire.ContainsKey(objet.GetNomObjet()))
+            {
+                this.inventaire[objet.GetNomObjet()]++;
+            }
+            else
+            {
+                this.inventaire.Add(objet.GetNomObjet(), 1);
+            }
+        }*/
     }
 }

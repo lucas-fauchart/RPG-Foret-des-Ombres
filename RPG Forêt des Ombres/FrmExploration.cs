@@ -83,7 +83,7 @@ namespace RPG_Forêt_des_Ombres
             else if (nombreAleatoire > 60 && nombreAleatoire < 90)
             {
                 if (unInventaire.Count < 5)
-                {
+                {   
                     GenererObjetAleatoire();
                     AfficherInventaire();
                     TbListeEvenement.AppendText("Oh. Vous avez trouvé un objet ! \r\n");
@@ -159,7 +159,8 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnVillage_Click(object sender, EventArgs e)
         {
-            //Ouvre interface heros
+            FrmVillage frmVillage = new FrmVillage();
+            frmVillage.ShowDialog();
         }
 
         public void GenererObjetAleatoire()

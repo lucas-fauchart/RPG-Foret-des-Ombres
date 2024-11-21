@@ -194,6 +194,7 @@
             Name = "FrmExploration";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Forêt des ombres - Exploration";
+            TopMost = true;
             WindowState = FormWindowState.Minimized;
             Load += FrmExploration_Load;
             ResumeLayout(false);

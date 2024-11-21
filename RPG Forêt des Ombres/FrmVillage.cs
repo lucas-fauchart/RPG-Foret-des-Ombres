@@ -12,9 +12,12 @@ namespace RPG_Forêt_des_Ombres
 {
     public partial class FrmVillage : Form
     {
-        public FrmVillage()
+        private List<Heros> lesHeros;
+
+        internal FrmVillage(List<Heros> lesHeros)
         {
             InitializeComponent();
+            this.lesHeros = lesHeros;
         }
 
         private void FrmVillage_Load(object sender, EventArgs e)
@@ -24,15 +27,17 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnHeros_Click(object sender, EventArgs e)
         {
-
+            FrmHeros frmHeros = new FrmHeros(lesHeros);
+            frmHeros.Show();
+            this.Hide();
         }
 
-        private void BtnPotion_Click(object sender, EventArgs e)
+        private void BtnArmesPotions_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnArme_Click(object sender, EventArgs e)
+        private void BtnParametres_Click(object sender, EventArgs e)
         {
 
         }

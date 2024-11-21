@@ -16,7 +16,8 @@ namespace RPG_Forêt_des_Ombres
         {
             //Permet d'ouvrir la fenêtre
             FrmExploration frmExploration = new FrmExploration();
-            frmExploration.ShowDialog();
+            frmExploration.Show();
+            this.Hide();
         }
     }
 }

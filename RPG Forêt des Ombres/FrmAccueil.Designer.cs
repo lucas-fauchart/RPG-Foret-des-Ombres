@@ -28,27 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAccueil));
-            pictureBox1 = new PictureBox();
             BtnNouvellePartie = new Button();
             BtnChargerPartie = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(108, 135);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(757, 135);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // BtnNouvellePartie
             // 
@@ -61,7 +46,7 @@
             BtnNouvellePartie.FlatStyle = FlatStyle.Flat;
             BtnNouvellePartie.Font = new Font("Segoe UI Black", 15F, FontStyle.Bold, GraphicsUnit.Point);
             BtnNouvellePartie.ForeColor = Color.Gold;
-            BtnNouvellePartie.Location = new Point(137, 332);
+            BtnNouvellePartie.Location = new Point(130, 332);
             BtnNouvellePartie.Name = "BtnNouvellePartie";
             BtnNouvellePartie.Size = new Size(326, 91);
             BtnNouvellePartie.TabIndex = 1;
@@ -79,7 +64,7 @@
             BtnChargerPartie.FlatStyle = FlatStyle.Flat;
             BtnChargerPartie.Font = new Font("Segoe UI Black", 15F, FontStyle.Bold, GraphicsUnit.Point);
             BtnChargerPartie.ForeColor = Color.Gold;
-            BtnChargerPartie.Location = new Point(515, 332);
+            BtnChargerPartie.Location = new Point(508, 332);
             BtnChargerPartie.Name = "BtnChargerPartie";
             BtnChargerPartie.Size = new Size(326, 91);
             BtnChargerPartie.TabIndex = 2;
@@ -90,11 +75,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.MediumSeaGreen;
-            label1.Location = new Point(63, 442);
+            label1.Location = new Point(33, 136);
             label1.Name = "label1";
-            label1.Size = new Size(295, 98);
+            label1.Size = new Size(368, 124);
             label1.TabIndex = 3;
             label1.Text = "Forêt";
             // 
@@ -103,7 +88,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Showcard Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.LimeGreen;
-            label2.Location = new Point(334, 462);
+            label2.Location = new Point(369, 178);
             label2.Name = "label2";
             label2.Size = new Size(139, 74);
             label2.TabIndex = 4;
@@ -114,7 +99,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(457, 420);
+            label3.Location = new Point(492, 136);
             label3.Name = "label3";
             label3.Size = new Size(451, 124);
             label3.TabIndex = 5;
@@ -131,7 +116,6 @@
             Controls.Add(label1);
             Controls.Add(BtnChargerPartie);
             Controls.Add(BtnNouvellePartie);
-            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -140,14 +124,11 @@
             Text = "Fôret des ombres - Accueil";
             WindowState = FormWindowState.Minimized;
             Load += FrmAccueil_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Button BtnNouvellePartie;
         private Button BtnChargerPartie;
         private Label label1;

@@ -31,10 +31,10 @@ namespace RPG_Forêt_des_Ombres
 
             //Génére les héros
             lesHeros.Add(new Heros("Arthur", "Un jeune héros déterminé à prouver sa valeur.", 100, 15, Image.FromFile("Images/arthur.png"), 0, 0));
-            lesHeros.Add(new Heros("Edgar", "Un combattant musclé qui ne connaît pas la peur.", 120, 10, Image.FromFile("Images/arthur.png"), 0, 0));
-            lesHeros.Add(new Heros("Gabriel", "Un grand au cœur tendre, mais redoutable au combat.", 105, 12, Image.FromFile("Images/arthur.png"), 0, 0));
-            lesHeros.Add(new Heros("Lina", "Rapide et forte, elle ne recule devant rien.", 90, 18, Image.FromFile("Images/arthur.png"), 0, 0));
-            lesHeros.Add(new Heros("Sofia", "Toujours prête à explorer de nouveaux horizons.", 100, 15, Image.FromFile("Images/arthur.png"), 0, 0));
+            lesHeros.Add(new Heros("Edgar", "Un combattant musclé qui ne connaît pas la peur.", 120, 10, Image.FromFile("Images/edgar.png"), 0, 0));
+            lesHeros.Add(new Heros("Gabriel", "Un grand au cœur tendre, mais redoutable au combat.", 105, 12, Image.FromFile("Images/gabriel.png"), 0, 0));
+            lesHeros.Add(new Heros("Lina", "Rapide et forte, elle ne recule devant rien.", 90, 18, Image.FromFile("Images/lina.png"), 0, 0));
+            lesHeros.Add(new Heros("Sofia", "Toujours prête à explorer de nouveaux horizons.", 100, 15, Image.FromFile("Images/sofia.png"), 0, 0));
 
             //Génére les ennemis
             int nombreAleatoireDegatEnnemi1 = random.Next(3, 7);
@@ -83,7 +83,7 @@ namespace RPG_Forêt_des_Ombres
             else if (nombreAleatoire > 60 && nombreAleatoire < 90)
             {
                 if (unInventaire.Count < 5)
-                {   
+                {
                     GenererObjetAleatoire();
                     AfficherInventaire();
                     TbListeEvenement.AppendText("Oh. Vous avez trouvé un objet ! \r\n");
@@ -159,8 +159,9 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnVillage_Click(object sender, EventArgs e)
         {
-            FrmVillage frmVillage = new FrmVillage();
-            frmVillage.ShowDialog();
+            FrmVillage frmVillage = new FrmVillage(lesHeros);
+            frmVillage.Show();
+            this.Hide();
         }
 
         public void GenererObjetAleatoire()

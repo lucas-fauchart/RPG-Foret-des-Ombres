@@ -56,26 +56,28 @@ namespace RPG_Forêt_des_Ombres
             int nombreAleatoireDegatMarteau = random.Next(5, 10);
             int nombreAleatoireDegatPioche = random.Next(8, 13);
             int nombreAleatoireDegatHache = random.Next(10, 15);
-            int nombreAleatoireDegatBatteDeBaseball = random.Next(13, 18);
+            int nombreAleatoireDegatBatteBaseball = random.Next(13, 18);
             int nombreAleatoireDegatEpee = random.Next(15, 20);
-            lesArmes.Add(new Arme("Marteau", "Un outil lourd et puissant, conçu pour écraser.", Image.FromFile("Images/ennemi1.png"), nombreAleatoireDegatMarteau));
-            lesArmes.Add(new Arme("Pioche", "Un outil robuste, capable de percer les ennemis.", Image.FromFile("Images/ennemi1.png"), nombreAleatoireDegatMarteau));
-            lesArmes.Add(new Arme("Hache", "Une lame affûtée, parfaite pour des coups rapides et puissants..", Image.FromFile("Images/ennemi1.png"), nombreAleatoireDegatMarteau));
-            lesArmes.Add(new Arme("Batte de baseball", "Simple mais efficace, elle repousse et assomme les ennemis.", Image.FromFile("Images/ennemi1.png"), nombreAleatoireDegatMarteau));
-            lesArmes.Add(new Arme("Epée", "Une arme équilibrée, symbole classique de maîtrise et de combat..", Image.FromFile("Images/ennemi1.png"), nombreAleatoireDegatMarteau));
+            lesArmes.Add(new Arme("Marteau", "Un outil lourd et puissant, conçu pour écraser.", Image.FromFile("Images/marteau.png"), "5 - 10", nombreAleatoireDegatMarteau));
+            lesArmes.Add(new Arme("Pioche", "Un outil robuste, capable de percer les ennemis.", Image.FromFile("Images/pioche.png"), "8 - 13", nombreAleatoireDegatPioche));
+            lesArmes.Add(new Arme("Hache", "Une lame affûtée, parfaite pour des coups rapides et puissants..", Image.FromFile("Images/hache.png"), "10 - 15", nombreAleatoireDegatHache));
+            lesArmes.Add(new Arme("Batte de baseball", "Simple mais efficace, elle repousse et assomme les ennemis.", Image.FromFile("Images/batteBaseball.png"), "13 - 18", nombreAleatoireDegatBatteBaseball));
+            lesArmes.Add(new Arme("Epée", "Une arme équilibrée, symbole classique de maîtrise et de combat..", Image.FromFile("Images/epee.png"), "15 - 20", nombreAleatoireDegatEpee));
 
             //Génére les potions
-            lesPotions.Add(new Potion("Potion de guérison faible", "Un breuvage simple, parfait pour des blessures légères.", Image.FromFile("Images/ennemi1.png"), 20));
-            lesPotions.Add(new Potion("Elixir de régénération", "Un élixir puissant qui accélère la guérison et restaure l'énergie perdue.", Image.FromFile("Images/ennemi1.png"), 50));
-            lesPotions.Add(new Potion("Nectar de vie", "Un nectar rare et précieux, capable de soigner les blessures graves en un instant.", Image.FromFile("Images/ennemi1.png"), 100));
+            lesPotions.Add(new Potion("Potion de guérison faible", "Un breuvage simple, parfait pour des blessures légères.", Image.FromFile("Images/potionGuerisonFaible.png"), 20));
+            lesPotions.Add(new Potion("Elixir de régénération", "Un élixir puissant qui accélère la guérison et restaure l'énergie perdue.", Image.FromFile("Images/elixirRegeneration.png"), 50));
+            lesPotions.Add(new Potion("Nectar de vie", "Un nectar rare et précieux, capable de soigner les blessures graves en un instant.", Image.FromFile("Images/nectarVie.png"), 100));
         }
 
         private void BtnForet1_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             int nombreAleatoire = random.Next(0, 100);
+            int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
 
-            if (nombreAleatoire > 0 && nombreAleatoire < 60)
+            if (nombreAleatoire > 0 && nombreAleatoire < 60 && nombreArmeInventaire < 1 && nombrePotionInventaire < 2)
             {
                 TbListeEvenement.AppendText("Au combat ! Vous venez de rencontrer un ennemi. \r\n");
                 //Ouvre interface combat
@@ -103,8 +105,10 @@ namespace RPG_Forêt_des_Ombres
         {
             Random random = new Random();
             int nombreAleatoire = random.Next(0, 100);
+            int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
 
-            if (nombreAleatoire > 0 && nombreAleatoire < 60)
+            if (nombreAleatoire > 0 && nombreAleatoire < 60 && nombreArmeInventaire < 1 && nombrePotionInventaire < 2)
             {
                 TbListeEvenement.AppendText("Au combat ! Vous venez de rencontrer un ennemi. \r\n");
                 //Ouvre interface combat
@@ -132,8 +136,10 @@ namespace RPG_Forêt_des_Ombres
         {
             Random random = new Random();
             int nombreAleatoire = random.Next(0, 100);
+            int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
 
-            if (nombreAleatoire > 0 && nombreAleatoire < 60)
+            if (nombreAleatoire > 0 && nombreAleatoire < 60 && nombreArmeInventaire < 1 && nombrePotionInventaire < 2)
             {
                 TbListeEvenement.AppendText("Au combat ! Vous venez de rencontrer un ennemi. \r\n");
                 //Ouvre interface combat
@@ -159,7 +165,7 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnVillage_Click(object sender, EventArgs e)
         {
-            FrmVillage frmVillage = new FrmVillage(lesHeros);
+            FrmVillage frmVillage = new FrmVillage(lesHeros, lesArmes, lesPotions);
             frmVillage.Show();
             this.Hide();
         }
@@ -169,19 +175,21 @@ namespace RPG_Forêt_des_Ombres
             Random random = new Random();
             int choix = random.Next(0, 2);
             int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
             if (choix == 0 && nombreArmeInventaire < 2)
             {
-                int armeChoisie = random.Next(random.Next(lesArmes.Count));
+                int armeChoisie = random.Next(lesArmes.Count);
                 Arme arme = lesArmes[armeChoisie];
                 unInventaire.Add(arme);
             }
-            else
+            else if (choix == 1 && nombrePotionInventaire < 3)
             {
-                int potionChoisie = random.Next(random.Next(lesPotions.Count));
+                int potionChoisie = random.Next(lesPotions.Count);
                 Potion potion = lesPotions[potionChoisie];
                 unInventaire.Add(potion);
             }
         }
+
         public void AfficherInventaire()
         {
             FlpInventaireJoueur.Controls.Clear();
@@ -190,7 +198,7 @@ namespace RPG_Forêt_des_Ombres
             {
                 Panel panelObjet = new Panel() { Width = 80, Height = 80, BorderStyle = BorderStyle.FixedSingle };
 
-                PictureBox PbItem = new PictureBox() { Width = 100, Height = 100, Image = unObjet.GetImageObjet(), SizeMode = PictureBoxSizeMode.Zoom, Dock = DockStyle.Top };
+                PictureBox PbItem = new PictureBox() { Width = 75, Height = 75, Image = unObjet.GetImageObjet(), SizeMode = PictureBoxSizeMode.Zoom, Dock = DockStyle.Top };
 
                 panelObjet.Controls.Add(PbItem);
 

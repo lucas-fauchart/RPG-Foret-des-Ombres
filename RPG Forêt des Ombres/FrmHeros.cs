@@ -13,11 +13,15 @@ namespace RPG_Forêt_des_Ombres
     public partial class FrmHeros : Form
     {
         private List<Heros> lesHeros;
+        private List<Arme> lesArmes;
+        private List<Potion> lesPotions;
 
-        internal FrmHeros(List<Heros> lesHeros)
+        internal FrmHeros(List<Heros> lesHeros, List<Arme> lesArmes, List<Potion> lesPotions)
         {
             InitializeComponent();
             this.lesHeros = lesHeros;
+            this.lesArmes = lesArmes;
+            this.lesPotions = lesPotions;
         }
 
         private void FrmHeros_Load(object sender, EventArgs e)
@@ -38,12 +42,19 @@ namespace RPG_Forêt_des_Ombres
             LbDescriptionHeros.Text = herosSelectionner.GetDescriptionPersonnage();
             LbPointVieHeros.Text = herosSelectionner.GetPointsViePersonnage().ToString();
             LbDegatHeros.Text = herosSelectionner.GetDegatPersonnage().ToString();
-            LbNiveauHeros.Text = herosSelectionner.GetNiveau().ToString();        
+            LbNiveauHeros.Text = herosSelectionner.GetNiveau().ToString();
         }
 
         private void BtnChoisirHeros_Click(object sender, EventArgs e)
         {
             Heros choixHeros = lesHeros[CbNomHeros.SelectedIndex];
+        }
+
+        private void BtnRetour_Click(object sender, EventArgs e)
+        {
+            FrmVillage frmVillage = new FrmVillage(lesHeros, lesArmes, lesPotions);
+            frmVillage.Show();
+            this.Hide();
         }
     }
 }

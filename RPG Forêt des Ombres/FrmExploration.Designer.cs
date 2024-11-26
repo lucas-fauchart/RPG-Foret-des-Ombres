@@ -144,9 +144,9 @@
             // 
             // FlpInventaireJoueur
             // 
-            FlpInventaireJoueur.Location = new Point(33, 444);
+            FlpInventaireJoueur.Location = new Point(33, 442);
             FlpInventaireJoueur.Name = "FlpInventaireJoueur";
-            FlpInventaireJoueur.Size = new Size(430, 86);
+            FlpInventaireJoueur.Size = new Size(433, 88);
             FlpInventaireJoueur.TabIndex = 10;
             // 
             // Lb1
@@ -163,7 +163,7 @@
             // 
             Lb3.AutoSize = true;
             Lb3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Lb3.Location = new Point(33, 410);
+            Lb3.Location = new Point(33, 408);
             Lb3.Name = "Lb3";
             Lb3.Size = new Size(115, 31);
             Lb3.TabIndex = 11;

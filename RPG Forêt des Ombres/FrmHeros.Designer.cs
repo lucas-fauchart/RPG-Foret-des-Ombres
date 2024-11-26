@@ -31,7 +31,7 @@
             CbNomHeros = new ComboBox();
             Lb1 = new Label();
             PbImageHeros = new PictureBox();
-            panel1 = new Panel();
+            Pl1 = new Panel();
             LbNiveauHeros = new Label();
             LbDegatHeros = new Label();
             LbPointVieHeros = new Label();
@@ -44,8 +44,9 @@
             Lb2 = new Label();
             label1 = new Label();
             BtnChoisirHeros = new Button();
+            BtnRetour = new Button();
             ((System.ComponentModel.ISupportInitialize)PbImageHeros).BeginInit();
-            panel1.SuspendLayout();
+            Pl1.SuspendLayout();
             SuspendLayout();
             // 
             // CbNomHeros
@@ -75,27 +76,27 @@
             PbImageHeros.TabIndex = 2;
             PbImageHeros.TabStop = false;
             // 
-            // panel1
+            // Pl1
             // 
-            panel1.Controls.Add(LbNiveauHeros);
-            panel1.Controls.Add(LbDegatHeros);
-            panel1.Controls.Add(LbPointVieHeros);
-            panel1.Controls.Add(LbDescriptionHeros);
-            panel1.Controls.Add(LbNomHeros);
-            panel1.Controls.Add(Lb6);
-            panel1.Controls.Add(Lb5);
-            panel1.Controls.Add(Lb4);
-            panel1.Controls.Add(Lb3);
-            panel1.Controls.Add(Lb2);
-            panel1.Location = new Point(527, 118);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 265);
-            panel1.TabIndex = 3;
+            Pl1.Controls.Add(LbNiveauHeros);
+            Pl1.Controls.Add(LbDegatHeros);
+            Pl1.Controls.Add(LbPointVieHeros);
+            Pl1.Controls.Add(LbDescriptionHeros);
+            Pl1.Controls.Add(LbNomHeros);
+            Pl1.Controls.Add(Lb6);
+            Pl1.Controls.Add(Lb5);
+            Pl1.Controls.Add(Lb4);
+            Pl1.Controls.Add(Lb3);
+            Pl1.Controls.Add(Lb2);
+            Pl1.Location = new Point(536, 118);
+            Pl1.Name = "Pl1";
+            Pl1.Size = new Size(242, 265);
+            Pl1.TabIndex = 3;
             // 
             // LbNiveauHeros
             // 
             LbNiveauHeros.AutoSize = true;
-            LbNiveauHeros.Location = new Point(95, 219);
+            LbNiveauHeros.Location = new Point(122, 120);
             LbNiveauHeros.Name = "LbNiveauHeros";
             LbNiveauHeros.Size = new Size(17, 20);
             LbNiveauHeros.TabIndex = 9;
@@ -104,7 +105,7 @@
             // LbDegatHeros
             // 
             LbDegatHeros.AutoSize = true;
-            LbDegatHeros.Location = new Point(90, 179);
+            LbDegatHeros.Location = new Point(27, 120);
             LbDegatHeros.Name = "LbDegatHeros";
             LbDegatHeros.Size = new Size(17, 20);
             LbDegatHeros.TabIndex = 8;
@@ -113,7 +114,7 @@
             // LbPointVieHeros
             // 
             LbPointVieHeros.AutoSize = true;
-            LbPointVieHeros.Location = new Point(125, 142);
+            LbPointVieHeros.Location = new Point(122, 44);
             LbPointVieHeros.Name = "LbPointVieHeros";
             LbPointVieHeros.Size = new Size(17, 20);
             LbPointVieHeros.TabIndex = 7;
@@ -121,17 +122,16 @@
             // 
             // LbDescriptionHeros
             // 
-            LbDescriptionHeros.AutoSize = true;
-            LbDescriptionHeros.Location = new Point(125, 62);
+            LbDescriptionHeros.Location = new Point(27, 195);
             LbDescriptionHeros.Name = "LbDescriptionHeros";
-            LbDescriptionHeros.Size = new Size(17, 20);
+            LbDescriptionHeros.Size = new Size(188, 46);
             LbDescriptionHeros.TabIndex = 6;
             LbDescriptionHeros.Text = "0";
             // 
             // LbNomHeros
             // 
             LbNomHeros.AutoSize = true;
-            LbNomHeros.Location = new Point(82, 26);
+            LbNomHeros.Location = new Point(27, 44);
             LbNomHeros.Name = "LbNomHeros";
             LbNomHeros.Size = new Size(17, 20);
             LbNomHeros.TabIndex = 5;
@@ -140,7 +140,7 @@
             // Lb6
             // 
             Lb6.AutoSize = true;
-            Lb6.Location = new Point(27, 219);
+            Lb6.Location = new Point(122, 100);
             Lb6.Name = "Lb6";
             Lb6.Size = new Size(62, 20);
             Lb6.TabIndex = 4;
@@ -149,7 +149,7 @@
             // Lb5
             // 
             Lb5.AutoSize = true;
-            Lb5.Location = new Point(27, 179);
+            Lb5.Location = new Point(27, 100);
             Lb5.Name = "Lb5";
             Lb5.Size = new Size(57, 20);
             Lb5.TabIndex = 3;
@@ -158,7 +158,7 @@
             // Lb4
             // 
             Lb4.AutoSize = true;
-            Lb4.Location = new Point(27, 142);
+            Lb4.Location = new Point(122, 24);
             Lb4.Name = "Lb4";
             Lb4.Size = new Size(93, 20);
             Lb4.TabIndex = 2;
@@ -167,7 +167,7 @@
             // Lb3
             // 
             Lb3.AutoSize = true;
-            Lb3.Location = new Point(27, 62);
+            Lb3.Location = new Point(27, 175);
             Lb3.Name = "Lb3";
             Lb3.Size = new Size(92, 20);
             Lb3.TabIndex = 1;
@@ -176,7 +176,7 @@
             // Lb2
             // 
             Lb2.AutoSize = true;
-            Lb2.Location = new Point(27, 26);
+            Lb2.Location = new Point(27, 24);
             Lb2.Name = "Lb2";
             Lb2.Size = new Size(49, 20);
             Lb2.TabIndex = 0;
@@ -193,7 +193,7 @@
             // 
             // BtnChoisirHeros
             // 
-            BtnChoisirHeros.Location = new Point(379, 438);
+            BtnChoisirHeros.Location = new Point(381, 432);
             BtnChoisirHeros.Name = "BtnChoisirHeros";
             BtnChoisirHeros.Size = new Size(188, 58);
             BtnChoisirHeros.TabIndex = 6;
@@ -201,14 +201,25 @@
             BtnChoisirHeros.UseVisualStyleBackColor = true;
             BtnChoisirHeros.Click += BtnChoisirHeros_Click;
             // 
+            // BtnRetour
+            // 
+            BtnRetour.Location = new Point(12, 12);
+            BtnRetour.Name = "BtnRetour";
+            BtnRetour.Size = new Size(60, 60);
+            BtnRetour.TabIndex = 7;
+            BtnRetour.Text = "<-";
+            BtnRetour.UseVisualStyleBackColor = true;
+            BtnRetour.Click += BtnRetour_Click;
+            // 
             // FrmHeros
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 553);
+            Controls.Add(BtnRetour);
             Controls.Add(BtnChoisirHeros);
             Controls.Add(label1);
-            Controls.Add(panel1);
+            Controls.Add(Pl1);
             Controls.Add(PbImageHeros);
             Controls.Add(Lb1);
             Controls.Add(CbNomHeros);
@@ -221,8 +232,8 @@
             WindowState = FormWindowState.Minimized;
             Load += FrmHeros_Load;
             ((System.ComponentModel.ISupportInitialize)PbImageHeros).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Pl1.ResumeLayout(false);
+            Pl1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -232,7 +243,7 @@
         private ComboBox CbNomHeros;
         private Label Lb1;
         private PictureBox PbImageHeros;
-        private Panel panel1;
+        private Panel Pl1;
         private Label Lb4;
         private Label Lb3;
         private Label Lb2;
@@ -245,5 +256,6 @@
         private Label LbNomHeros;
         private Label label1;
         private Button BtnChoisirHeros;
+        private Button BtnRetour;
     }
 }

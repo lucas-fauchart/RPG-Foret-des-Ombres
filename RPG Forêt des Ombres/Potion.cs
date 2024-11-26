@@ -8,7 +8,7 @@ namespace RPG_Forêt_des_Ombres
 {
     internal class Potion : Objet
     {
-        ///Variable
+        //Variable
         private int bonusPointsVie;
 
         //Construction

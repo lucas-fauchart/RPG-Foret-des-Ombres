@@ -122,7 +122,6 @@
             Name = "FrmAccueil";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Fôret des ombres - Accueil";
-            WindowState = FormWindowState.Minimized;
             Load += FrmAccueil_Load;
             ResumeLayout(false);
             PerformLayout();

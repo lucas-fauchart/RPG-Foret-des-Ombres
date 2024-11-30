@@ -9,5 +9,6 @@ namespace RPG_Forêt_des_Ombres
     internal class Globale
     {
         //private List<Heros> lesHeros = new List<Heros>();
+        public static Heros? choixHeros;
     }
 }

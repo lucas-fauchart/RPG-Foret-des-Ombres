@@ -47,5 +47,12 @@ namespace RPG_Forêt_des_Ombres
         {
 
         }
+
+        private void BtnRetour_Click(object sender, EventArgs e)
+        {
+            FrmExploration frmExploration = new FrmExploration(lesHeros);
+            frmExploration.Show();
+            this.Hide();
+        }
     }
 }

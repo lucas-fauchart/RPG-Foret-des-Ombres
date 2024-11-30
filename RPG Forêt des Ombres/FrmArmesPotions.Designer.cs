@@ -510,7 +510,6 @@
             Name = "FrmArmesPotions";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Forêt des ombres - Armes et potions";
-            WindowState = FormWindowState.Minimized;
             Load += FrmArmesPotions_Load;
             ((System.ComponentModel.ISupportInitialize)PbMarteau).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbPioche).EndInit();

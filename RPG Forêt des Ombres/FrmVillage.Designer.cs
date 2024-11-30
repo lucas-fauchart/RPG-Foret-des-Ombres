@@ -34,6 +34,7 @@
             Lb1 = new Label();
             Lb3 = new Label();
             Lb2 = new Label();
+            BtnRetour = new Button();
             SuspendLayout();
             // 
             // BtnHeros
@@ -93,11 +94,22 @@
             Lb2.TabIndex = 5;
             Lb2.Text = "Héros";
             // 
+            // BtnRetour
+            // 
+            BtnRetour.Location = new Point(12, 12);
+            BtnRetour.Name = "BtnRetour";
+            BtnRetour.Size = new Size(60, 60);
+            BtnRetour.TabIndex = 21;
+            BtnRetour.Text = "<-";
+            BtnRetour.UseVisualStyleBackColor = true;
+            BtnRetour.Click += BtnRetour_Click;
+            // 
             // FrmVillage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 553);
+            Controls.Add(BtnRetour);
             Controls.Add(Lb2);
             Controls.Add(Lb3);
             Controls.Add(Lb1);
@@ -110,7 +122,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Forêt des ombres - Village";
             TopMost = true;
-            WindowState = FormWindowState.Minimized;
             Load += FrmVillage_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -124,5 +135,6 @@
         private Label Lb1;
         private Label Lb3;
         private Label Lb2;
+        private Button BtnRetour;
     }
 }

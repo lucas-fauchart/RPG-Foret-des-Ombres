@@ -12,15 +12,18 @@ namespace RPG_Forêt_des_Ombres
         private int experience;
         private int niveau;
         //private Dictionary<string, List<Objet>> inventaire = new Dictionary<string, List<Objet>>();
+        private int experiencePourNiveauSuivant;
 
         //Constructeur
-        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau /*Dictionary<string, int> unInventaire*/) :
-            base(nomPersonnage, descriptionPersonnage, lesPointsViePersonnage, lesDegatsPersonnage, uneImagePersonnage)
+        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesPointsVieParDefault, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau /*Dictionary<string, int> unInventaire*/) :
+            base(nomPersonnage, descriptionPersonnage, lesPointsViePersonnage, lesPointsVieParDefault, lesDegatsPersonnage, uneImagePersonnage)
         {
             this.experience = uneExperience;
             this.niveau = niveau;
             //this.inventaire = unInventaire;
+            this.experiencePourNiveauSuivant = 100;
         }
+        //Getters
         public int GetExperience()
         {
             return experience;
@@ -29,6 +32,32 @@ namespace RPG_Forêt_des_Ombres
         {
             return niveau;
         }
+
+        //Setters
+        public void AjouterExperience(int bonusExperience)
+        {
+            this.experience += bonusExperience;
+            if (experience >= experiencePourNiveauSuivant)
+            {
+                MonterNiveau();
+            }
+        }
+        public void MonterNiveau()
+        {
+            niveau++;
+            experiencePourNiveauSuivant = niveau * 100;
+            experience = 0;
+        }
+        public int GetExperiencePourNiveauSuivant()
+        {
+            return experiencePourNiveauSuivant;
+        }
+
+        public void RetirerExperience(int malusExperience)
+        {
+            this.experience -= malusExperience;
+        }
+
         /*public Dictionary<string, int> GetInventaire()
         {
             return inventaire;

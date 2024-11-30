@@ -12,15 +12,17 @@ namespace RPG_Forêt_des_Ombres
         private string nomPersonnage;
         private string descriptionPersonnage;
         private int pointsViePersonnage;
+        private readonly int pointsVieParDefaultPersonnage;
         private int degatsPersonnage;
         private Image imagePersonnage;
 
         //Constructeur
-        public Personnage(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesDegatsPersonnage, Image uneImagePersonnage)
+        public Personnage(string leNomPersonnage, string laDescriptionPersonnage, int lesPointsViePersonnage, int lesPointsVieParDefaultPersonnage, int lesDegatsPersonnage, Image uneImagePersonnage)
         {
             this.nomPersonnage = leNomPersonnage;
             this.descriptionPersonnage = laDescriptionPersonnage;
             this.pointsViePersonnage = lesPointsViePersonnage;
+            this.pointsVieParDefaultPersonnage = lesPointsVieParDefaultPersonnage;
             this.degatsPersonnage = lesDegatsPersonnage;
             this.imagePersonnage = uneImagePersonnage;
         }
@@ -37,6 +39,10 @@ namespace RPG_Forêt_des_Ombres
         public int GetPointsViePersonnage()
         {
             return this.pointsViePersonnage;
+        }
+        public int GetPointsViePaeDefautl()
+        {
+            return this.pointsVieParDefaultPersonnage;
         }
         public int GetDegatPersonnage()
         {
@@ -60,7 +66,7 @@ namespace RPG_Forêt_des_Ombres
         //Methode
         public void RecevoirDesDegats(int degats)
         {
-            pointsViePersonnage -= degats;
+            pointsViePersonnage = Math.Max(0, pointsViePersonnage - degats);
         }
         public virtual void Attaquer(Personnage cible)
         {

@@ -120,7 +120,7 @@
             LbNiveau.Name = "LbNiveau";
             LbNiveau.Size = new Size(26, 31);
             LbNiveau.TabIndex = 6;
-            LbNiveau.Text = "5";
+            LbNiveau.Text = "0";
             // 
             // LbExperience
             // 
@@ -128,9 +128,9 @@
             LbExperience.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             LbExperience.Location = new Point(165, 71);
             LbExperience.Name = "LbExperience";
-            LbExperience.Size = new Size(83, 31);
+            LbExperience.Size = new Size(47, 31);
             LbExperience.TabIndex = 7;
-            LbExperience.Text = "24/100";
+            LbExperience.Text = "0/0";
             // 
             // TbListeEvenement
             // 
@@ -146,7 +146,7 @@
             // 
             FlpInventaireJoueur.Location = new Point(33, 442);
             FlpInventaireJoueur.Name = "FlpInventaireJoueur";
-            FlpInventaireJoueur.Size = new Size(433, 88);
+            FlpInventaireJoueur.Size = new Size(271, 88);
             FlpInventaireJoueur.TabIndex = 10;
             // 
             // Lb1
@@ -195,7 +195,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Forêt des ombres - Exploration";
             TopMost = true;
-            WindowState = FormWindowState.Minimized;
             Load += FrmExploration_Load;
             ResumeLayout(false);
             PerformLayout();

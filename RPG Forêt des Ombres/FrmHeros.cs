@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RPG_Forêt_des_Ombres
 {
@@ -31,7 +32,7 @@ namespace RPG_Forêt_des_Ombres
                 CbNomHeros.Items.Add(unHeros.GetNomPersonnage());
             }
 
-            CbNomHeros.SelectedIndex = -1;
+            CbNomHeros.SelectedIndex = 1;
         }
 
         private void CbNomHeros_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +48,8 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnChoisirHeros_Click(object sender, EventArgs e)
         {
-            Heros choixHeros = lesHeros[CbNomHeros.SelectedIndex];
+            Globale.choixHeros = lesHeros[CbNomHeros.SelectedIndex];
+            MessageBox.Show("L'héros " + lesHeros[CbNomHeros.SelectedIndex].GetNomPersonnage() + " a était selectionné");
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)

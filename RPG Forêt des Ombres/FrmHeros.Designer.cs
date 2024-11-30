@@ -229,7 +229,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Forêt des ombres - Héros";
             TopMost = true;
-            WindowState = FormWindowState.Minimized;
             Load += FrmHeros_Load;
             ((System.ComponentModel.ISupportInitialize)PbImageHeros).EndInit();
             Pl1.ResumeLayout(false);

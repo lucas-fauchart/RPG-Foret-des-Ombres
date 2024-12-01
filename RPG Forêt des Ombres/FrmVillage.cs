@@ -15,6 +15,7 @@ namespace RPG_Forêt_des_Ombres
         private List<Heros> lesHeros;
         private List<Arme> lesArmes;
         private List<Potion> lesPotions;
+        private List<Ennemi> lesEnnemis;
 
         internal FrmVillage(List<Heros> lesHeros, List<Arme> lesArmes, List<Potion> lesPotions)
         {
@@ -50,7 +51,7 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            FrmExploration frmExploration = new FrmExploration(lesHeros);
+            FrmExploration frmExploration = new FrmExploration(lesHeros, lesEnnemis, lesArmes, lesPotions);
             frmExploration.Show();
             this.Hide();
         }

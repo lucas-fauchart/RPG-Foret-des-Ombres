@@ -128,7 +128,6 @@
             PbBatteBaseball.SizeMode = PictureBoxSizeMode.Zoom;
             PbBatteBaseball.TabIndex = 3;
             PbBatteBaseball.TabStop = false;
-            PbBatteBaseball.Click += PbBatteBaseball_Click;
             // 
             // Pl1
             // 
@@ -149,7 +148,6 @@
             LbDegatSupplementaireMarteau.Size = new Size(17, 20);
             LbDegatSupplementaireMarteau.TabIndex = 11;
             LbDegatSupplementaireMarteau.Text = "0";
-            LbDegatSupplementaireMarteau.Click += LbDegatSupplementaireMarteau_Click;
             // 
             // LbNomMarteau
             // 
@@ -545,12 +543,10 @@
         private PictureBox PbHache;
         private PictureBox PbBatteBaseball;
         private Label LbNomEpee;
-        private Label LbDegatSupplementaire;
         private Panel Pl1;
         private Label LbDegatSupplementaireMarteau;
         private Label LbNomMarteau;
         private Label LbDescriptionMarteau;
-        private Label label20;
         private PictureBox PbElexirRegeneration;
         private PictureBox PbPotionGuerisonFaible;
         private PictureBox PbEpee;

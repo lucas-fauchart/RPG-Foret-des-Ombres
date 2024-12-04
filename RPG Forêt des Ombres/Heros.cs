@@ -13,26 +13,37 @@ namespace RPG_Forêt_des_Ombres
         private int niveau;
         //private Dictionary<string, List<Objet>> inventaire = new Dictionary<string, List<Objet>>();
         private int experiencePourNiveauSuivant;
+        private int degatsParDefault;
+        private Image fondVillageHeros;
 
         //Constructeur
-        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesPointsVieParDefault, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau /*Dictionary<string, int> unInventaire*/) :
+        public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesPointsVieParDefault, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau, int lesDegatsParDefault, Image unFondVillageHeros /*Dictionary<string, int> unInventaire*/) :
             base(nomPersonnage, descriptionPersonnage, lesPointsViePersonnage, lesPointsVieParDefault, lesDegatsPersonnage, uneImagePersonnage)
         {
             this.experience = uneExperience;
             this.niveau = niveau;
             //this.inventaire = unInventaire;
             this.experiencePourNiveauSuivant = 100;
+            this.degatsParDefault = lesDegatsParDefault;
+            this.fondVillageHeros = unFondVillageHeros;
         }
         //Getters
         public int GetExperience()
         {
-            return experience;
+            return this.experience;
         }
         public int GetNiveau()
         {
-            return niveau;
+            return this.niveau;
         }
-
+        public int GetDegatsParDefault()
+        {
+            return this.degatsParDefault;
+        }
+        public Image GetImageFondVillage()
+        {
+            return this.fondVillageHeros;
+        }
         //Setters
         public void AjouterExperience(int bonusExperience)
         {
@@ -52,12 +63,18 @@ namespace RPG_Forêt_des_Ombres
         {
             return experiencePourNiveauSuivant;
         }
-
         public void RetirerExperience(int malusExperience)
         {
             this.experience -= malusExperience;
+            if (this.experience < 0)
+            {
+                this.experience = 0;
+            }
         }
-
+        public void MettreDegatsParDefault(int lesDegatsParDefault)
+        {
+            ReinisialiserDegats(lesDegatsParDefault);
+        }
         /*public Dictionary<string, int> GetInventaire()
         {
             return inventaire;

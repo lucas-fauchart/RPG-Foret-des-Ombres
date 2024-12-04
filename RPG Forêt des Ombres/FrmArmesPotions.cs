@@ -13,14 +13,9 @@ namespace RPG_Forêt_des_Ombres
 {
     public partial class FrmArmesPotions : Form
     {
-        private List<Arme> lesArmes;
-        private List<Potion> lesPotions;
-
-        internal FrmArmesPotions(List<Arme> lesArmes, List<Potion> lesPotions)
+        internal FrmArmesPotions()
         {
             InitializeComponent();
-            this.lesArmes = lesArmes;
-            this.lesPotions = lesPotions;
         }
 
         private void PbHache_Click(object sender, EventArgs e)
@@ -30,63 +25,53 @@ namespace RPG_Forêt_des_Ombres
 
         private void FrmArmesPotions_Load(object sender, EventArgs e)
         {
-            Arme uneArmeMarteau = lesArmes[0];
+            Arme uneArmeMarteau = Globale.lesArmes[0];
             PbMarteau.Image = uneArmeMarteau.GetImageObjet();
             LbNomMarteau.Text = uneArmeMarteau.GetNomObjet();
             LbDescriptionMarteau.Text = uneArmeMarteau.GetDescriptionObjet();
             LbDegatSupplementaireMarteau.Text = "Dégât : " + uneArmeMarteau.GetDegatsPossible();
 
-            Arme uneArmePioche = lesArmes[1];
+            Arme uneArmePioche = Globale.lesArmes[1];
             PbPioche.Image = uneArmePioche.GetImageObjet();
             LbNomPioche.Text = uneArmePioche.GetNomObjet();
             LbDescriptionPioche.Text = uneArmePioche.GetDescriptionObjet();
             LbDegatSupplementairePioche.Text = "Dégât : " + uneArmePioche.GetDegatsPossible();
 
-            Arme uneArmeHache = lesArmes[2];
+            Arme uneArmeHache = Globale.lesArmes[2];
             PbHache.Image = uneArmeHache.GetImageObjet();
             LbNomHache.Text = uneArmeHache.GetNomObjet();
             LbDescriptionHache.Text = uneArmeHache.GetDescriptionObjet();
             LbDegatSupplementaireHache.Text = "Dégât : " + uneArmeHache.GetDegatsPossible();
 
-            Arme uneArmeBatteBaseball = lesArmes[3];
+            Arme uneArmeBatteBaseball = Globale.lesArmes[3];
             PbBatteBaseball.Image = uneArmeBatteBaseball.GetImageObjet();
             LbNomBatteBaseball.Text = uneArmeBatteBaseball.GetNomObjet();
             LbDescriptionBatteBaseball.Text = uneArmeBatteBaseball.GetDescriptionObjet();
             LbDegatSupplementaireBatteBaseball.Text = "Dégât : " + uneArmeBatteBaseball.GetDegatsPossible();
 
-            Arme uneArmeEpee = lesArmes[4];
+            Arme uneArmeEpee = Globale.lesArmes[4];
             PbEpee.Image = uneArmeEpee.GetImageObjet();
             LbNomEpee.Text = uneArmeEpee.GetNomObjet();
             LbDescriptionEpee.Text = uneArmeEpee.GetDescriptionObjet();
             LbDegatSupplementaireEpee.Text = "Dégât : " + uneArmeEpee.GetDegatsPossible();
 
-            Potion unePotionPotionGuerisonFaible = lesPotions[0];
+            Potion unePotionPotionGuerisonFaible = Globale.lesPotions[0];
             PbPotionGuerisonFaible.Image = unePotionPotionGuerisonFaible.GetImageObjet();
             LbNomPotionGuerisionFaible.Text = unePotionPotionGuerisonFaible.GetNomObjet();
             LbDescriptionPotionGuerisonFaible.Text = unePotionPotionGuerisonFaible.GetDescriptionObjet();
             LbPointsVieSupplementaireElexirRegeneration.Text = "Vie : " + unePotionPotionGuerisonFaible.GetBonusPointsVie().ToString();
 
-            Potion unePotionElexirRegeneration = lesPotions[1];
+            Potion unePotionElexirRegeneration = Globale.lesPotions[1];
             PbElexirRegeneration.Image = unePotionElexirRegeneration.GetImageObjet();
             LbNomElexirRegeneration.Text = unePotionElexirRegeneration.GetNomObjet();
             LbDescriptionElexirRegeneration.Text = unePotionElexirRegeneration.GetDescriptionObjet();
             LbPointsVieSupplementaireElexirRegeneration.Text = "Vie : " + unePotionElexirRegeneration.GetBonusPointsVie().ToString();
 
-            Potion unePotionNectarVie = lesPotions[2];
+            Potion unePotionNectarVie = Globale.lesPotions[2];
             PbNectarVie.Image = unePotionNectarVie.GetImageObjet();
             LbNomNectarVie.Text = unePotionNectarVie.GetNomObjet();
             LbDescriptionNectarVie.Text = unePotionNectarVie.GetDescriptionObjet();
             LbPointsVieSupplementaireNectarVie.Text = "Vie : " + unePotionNectarVie.GetBonusPointsVie().ToString();
-        }
-
-        private void LbDegatSupplementaireMarteau_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PbBatteBaseball_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

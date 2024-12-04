@@ -13,8 +13,8 @@ namespace RPG_Forêt_des_Ombres
         private int bonusDegat;
 
         //Constructeur
-        public Arme(string leNomObjet, string laDescriptionObjet, Image uneImageObjet, string lesDegatsPossible, int unBonusDegat) :
-             base(leNomObjet, laDescriptionObjet, uneImageObjet)
+        public Arme(string leType, string leNomObjet, string laDescriptionObjet, Image uneImageObjet, string lesDegatsPossible, int unBonusDegat) :
+             base(leType, leNomObjet, laDescriptionObjet, uneImageObjet)
         {
             this.degatsPossible = lesDegatsPossible;
             this.bonusDegat = unBonusDegat;

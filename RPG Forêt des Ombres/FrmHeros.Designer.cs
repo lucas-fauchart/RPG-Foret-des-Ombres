@@ -226,12 +226,17 @@
             // 
             // BtnRetour
             // 
+            BtnRetour.BackColor = Color.Transparent;
+            BtnRetour.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRetour.FlatAppearance.BorderSize = 0;
+            BtnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnRetour.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnRetour.FlatStyle = FlatStyle.Flat;
             BtnRetour.Location = new Point(12, 12);
             BtnRetour.Name = "BtnRetour";
             BtnRetour.Size = new Size(60, 60);
             BtnRetour.TabIndex = 7;
-            BtnRetour.Text = "<-";
-            BtnRetour.UseVisualStyleBackColor = true;
+            BtnRetour.UseVisualStyleBackColor = false;
             BtnRetour.Click += BtnRetour_Click;
             // 
             // label1

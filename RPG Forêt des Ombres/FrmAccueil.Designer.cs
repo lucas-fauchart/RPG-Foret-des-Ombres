@@ -75,6 +75,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.MediumSeaGreen;
             label1.Location = new Point(33, 136);
@@ -86,6 +87,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Showcard Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.LimeGreen;
             label2.Location = new Point(369, 178);
@@ -97,6 +99,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(492, 136);
@@ -110,6 +113,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SaddleBrown;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
             Controls.Add(label3);
             Controls.Add(label2);

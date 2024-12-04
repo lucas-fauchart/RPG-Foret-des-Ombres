@@ -46,16 +46,19 @@
             Lb15 = new Label();
             BtnChoisirHeros = new Button();
             BtnRetour = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)PbImageHeros).BeginInit();
             Pl1.SuspendLayout();
             SuspendLayout();
             // 
             // CbNomHeros
             // 
-            CbNomHeros.BackColor = SystemColors.HighlightText;
+            CbNomHeros.BackColor = Color.Tan;
+            CbNomHeros.DropDownStyle = ComboBoxStyle.DropDownList;
             CbNomHeros.FlatStyle = FlatStyle.Flat;
+            CbNomHeros.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             CbNomHeros.FormattingEnabled = true;
-            CbNomHeros.Location = new Point(408, 60);
+            CbNomHeros.Location = new Point(203, 101);
             CbNomHeros.Name = "CbNomHeros";
             CbNomHeros.Size = new Size(151, 28);
             CbNomHeros.TabIndex = 0;
@@ -67,7 +70,7 @@
             Lb1.BackColor = Color.Transparent;
             Lb1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Lb1.ForeColor = Color.Transparent;
-            Lb1.Location = new Point(276, 437);
+            Lb1.Location = new Point(243, 463);
             Lb1.Name = "Lb1";
             Lb1.Size = new Size(67, 28);
             Lb1.TabIndex = 1;
@@ -76,7 +79,7 @@
             // PbImageHeros
             // 
             PbImageHeros.BackColor = Color.Transparent;
-            PbImageHeros.Location = new Point(187, 169);
+            PbImageHeros.Location = new Point(156, 195);
             PbImageHeros.Name = "PbImageHeros";
             PbImageHeros.Size = new Size(242, 265);
             PbImageHeros.SizeMode = PictureBoxSizeMode.Zoom;
@@ -98,15 +101,15 @@
             Pl1.Controls.Add(Lb2);
             Pl1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             Pl1.ForeColor = SystemColors.ButtonFace;
-            Pl1.Location = new Point(506, 169);
+            Pl1.Location = new Point(499, 151);
             Pl1.Name = "Pl1";
-            Pl1.Size = new Size(242, 265);
+            Pl1.Size = new Size(270, 265);
             Pl1.TabIndex = 3;
             // 
             // LbNiveauHeros
             // 
             LbNiveauHeros.AutoSize = true;
-            LbNiveauHeros.Location = new Point(109, 120);
+            LbNiveauHeros.Location = new Point(132, 120);
             LbNiveauHeros.Name = "LbNiveauHeros";
             LbNiveauHeros.Size = new Size(20, 23);
             LbNiveauHeros.TabIndex = 9;
@@ -124,7 +127,7 @@
             // LbPointVieHeros
             // 
             LbPointVieHeros.AutoSize = true;
-            LbPointVieHeros.Location = new Point(109, 44);
+            LbPointVieHeros.Location = new Point(132, 44);
             LbPointVieHeros.Name = "LbPointVieHeros";
             LbPointVieHeros.Size = new Size(20, 23);
             LbPointVieHeros.TabIndex = 7;
@@ -134,7 +137,7 @@
             // 
             LbDescriptionHeros.Location = new Point(14, 195);
             LbDescriptionHeros.Name = "LbDescriptionHeros";
-            LbDescriptionHeros.Size = new Size(209, 63);
+            LbDescriptionHeros.Size = new Size(242, 63);
             LbDescriptionHeros.TabIndex = 6;
             LbDescriptionHeros.Text = "0";
             // 
@@ -150,7 +153,7 @@
             // Lb6
             // 
             Lb6.AutoSize = true;
-            Lb6.Location = new Point(109, 100);
+            Lb6.Location = new Point(132, 100);
             Lb6.Name = "Lb6";
             Lb6.Size = new Size(75, 23);
             Lb6.TabIndex = 4;
@@ -168,7 +171,7 @@
             // Lb4
             // 
             Lb4.AutoSize = true;
-            Lb4.Location = new Point(109, 24);
+            Lb4.Location = new Point(132, 24);
             Lb4.Name = "Lb4";
             Lb4.Size = new Size(114, 23);
             Lb4.TabIndex = 2;
@@ -198,7 +201,7 @@
             Lb15.BackColor = Color.Transparent;
             Lb15.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Lb15.ForeColor = SystemColors.ButtonHighlight;
-            Lb15.Location = new Point(544, 437);
+            Lb15.Location = new Point(553, 419);
             Lb15.Name = "Lb15";
             Lb15.Size = new Size(164, 28);
             Lb15.TabIndex = 5;
@@ -206,12 +209,19 @@
             // 
             // BtnChoisirHeros
             // 
-            BtnChoisirHeros.Location = new Point(392, 483);
+            BtnChoisirHeros.BackColor = Color.SaddleBrown;
+            BtnChoisirHeros.FlatAppearance.BorderColor = Color.Silver;
+            BtnChoisirHeros.FlatAppearance.BorderSize = 2;
+            BtnChoisirHeros.FlatAppearance.MouseOverBackColor = Color.Sienna;
+            BtnChoisirHeros.FlatStyle = FlatStyle.Flat;
+            BtnChoisirHeros.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnChoisirHeros.ForeColor = Color.Transparent;
+            BtnChoisirHeros.Location = new Point(377, 494);
             BtnChoisirHeros.Name = "BtnChoisirHeros";
-            BtnChoisirHeros.Size = new Size(188, 58);
+            BtnChoisirHeros.Size = new Size(215, 47);
             BtnChoisirHeros.TabIndex = 6;
-            BtnChoisirHeros.Text = "Choisir cette héros";
-            BtnChoisirHeros.UseVisualStyleBackColor = true;
+            BtnChoisirHeros.Text = "CHOISIR CETTE HEROS";
+            BtnChoisirHeros.UseVisualStyleBackColor = false;
             BtnChoisirHeros.Click += BtnChoisirHeros_Click;
             // 
             // BtnRetour
@@ -224,6 +234,18 @@
             BtnRetour.UseVisualStyleBackColor = true;
             BtnRetour.Click += BtnRetour_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Transparent;
+            label1.Location = new Point(147, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(262, 28);
+            label1.TabIndex = 8;
+            label1.Text = "SELECTIONNE TON HEROS";
+            // 
             // FrmHeros
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -231,6 +253,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(label1);
             Controls.Add(BtnRetour);
             Controls.Add(BtnChoisirHeros);
             Controls.Add(Lb15);
@@ -272,5 +295,6 @@
         private Label Lb15;
         private Button BtnChoisirHeros;
         private Button BtnRetour;
+        private Label label1;
     }
 }

@@ -12,8 +12,8 @@ namespace RPG_Forêt_des_Ombres
         private int bonusPointsVie;
 
         //Construction
-        public Potion(string leNomObjet, string laDescriptionObjet, Image uneImageObjet, int unBonusPointsVie) :
-             base(leNomObjet, laDescriptionObjet, uneImageObjet)
+        public Potion(string leType, string leNomObjet, string laDescriptionObjet, Image uneImageObjet, int unBonusPointsVie) :
+             base(leType, leNomObjet, laDescriptionObjet, uneImageObjet)
         {
             this.bonusPointsVie = unBonusPointsVie;
         }

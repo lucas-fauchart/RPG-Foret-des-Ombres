@@ -12,34 +12,29 @@ namespace RPG_Forêt_des_Ombres
 {
     public partial class FrmVillage : Form
     {
-        private List<Heros> lesHeros;
-        private List<Arme> lesArmes;
-        private List<Potion> lesPotions;
-        private List<Ennemi> lesEnnemis;
-
-        internal FrmVillage(List<Heros> lesHeros, List<Arme> lesArmes, List<Potion> lesPotions)
+        internal FrmVillage()
         {
             InitializeComponent();
-            this.lesHeros = lesHeros;
-            this.lesArmes = lesArmes;
-            this.lesPotions = lesPotions;
         }
 
         private void FrmVillage_Load(object sender, EventArgs e)
         {
-
+            this.BackgroundImage = Image.FromFile("Images/Fond/FondVillage.png");
+            BtnHeros.BackgroundImage = Image.FromFile("Images/Bouton/BoutonHeros.png");
+            BtnArmesPotions.BackgroundImage = Image.FromFile("Images/Bouton/BoutonArmePotion.png");
+            BtnParametres.BackgroundImage = Image.FromFile("Images/Bouton/BoutonParametre.png");
         }
 
         private void BtnHeros_Click(object sender, EventArgs e)
         {
-            FrmHeros frmHeros = new FrmHeros(lesHeros, lesArmes, lesPotions);
+            FrmHeros frmHeros = new FrmHeros();
             frmHeros.Show();
             this.Hide();
         }
 
         private void BtnArmesPotions_Click(object sender, EventArgs e)
         {
-            FrmArmesPotions frmArmesPotions = new FrmArmesPotions(lesArmes, lesPotions);
+            FrmArmesPotions frmArmesPotions = new FrmArmesPotions();
             frmArmesPotions.Show();
             this.Hide();
         }
@@ -51,7 +46,7 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            FrmExploration frmExploration = new FrmExploration(lesHeros, lesEnnemis, lesArmes, lesPotions);
+            FrmExploration frmExploration = new FrmExploration();
             frmExploration.Show();
             this.Hide();
         }

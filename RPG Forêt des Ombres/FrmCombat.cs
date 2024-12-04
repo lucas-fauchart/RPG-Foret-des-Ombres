@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RPG_Forêt_des_Ombres
 {
@@ -14,118 +13,126 @@ namespace RPG_Forêt_des_Ombres
     {
         //Variable
         private Random random = new Random();
-        private List<Heros> lesHeros;
-        private List<Ennemi> lesEnnemis;
-        private List<Potion> lesPotions;
-        private List<Arme> lesArmes;
-        private List<Objet> unInventaire;
         private int ennemiChoisie;
         private int herosChoisie;
 
-        internal FrmCombat(List<Heros> lesHeros, List<Ennemi> lesEnnemi, List<Objet> unInventaire)
+
+        internal FrmCombat()
         {
             InitializeComponent();
-            this.lesHeros = lesHeros;
-            this.lesEnnemis = lesEnnemi;
-            this.unInventaire = unInventaire;
         }
 
         private void FrmCombat_Load(object sender, EventArgs e)
         {
-            for (herosChoisie = 0; herosChoisie < lesHeros.Count; herosChoisie++)
+            this.BackgroundImage = Image.FromFile("Images/Fond/FondCombat.png");
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
             {
-                if (Globale.choixHeros.GetNomPersonnage() == lesHeros[herosChoisie].GetNomPersonnage())
+                Globale.choixHeros.ReinisialiserDegats(Globale.lesHeros[herosChoisie].GetDegatsParDefault());
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
                 {
-                    PbHeros.Image = lesHeros[herosChoisie].GetImagePersonnage();
-                    Arme arme = unInventaire.OfType<Arme>().FirstOrDefault();
-                    lesHeros[herosChoisie].AjouterDegat(arme.GetBonusDegat());
+                    Globale.choixHeros.NouveauPointsVie(Globale.choixHeros.GetPointsViePaeDefautl());
+                    PbHeros.Image = Globale.lesHeros[herosChoisie].GetImagePersonnage();
+                    LbPointsVieHeros.Text = $"{Globale.lesHeros[herosChoisie].GetPointsViePersonnage()} / {Globale.lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
+                    Arme arme = Globale.unInventaire.OfType<Arme>().FirstOrDefault();
+                    Globale.lesHeros[herosChoisie].AjouterDegat(arme.GetBonusDegat());
                 }
             }
 
 
             ennemiChoisie = GenererEnnemiAleatoire();
-            PbEnnemi.Image = lesEnnemis[ennemiChoisie].GetImagePersonnage();
-            LbPointsVieEnnemi.Text = $"{lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
+            PbEnnemi.Image = Globale.lesEnnemis[ennemiChoisie].GetImagePersonnage();
+            Globale.lesEnnemis[ennemiChoisie].NouveauPointsVie(Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl());
+            LbPointsVieEnnemi.Text = $"{Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
+
         }
 
-        private void BtnAttaque_Click(object sender, EventArgs e)
+        private void PbHeros_Click(object sender, EventArgs e)
         {
-            for (herosChoisie = 0; herosChoisie < lesHeros.Count; herosChoisie++)
+            FrmInventairePotions frmInventairePotions = new FrmInventairePotions(Globale.unInventaire, this);
+            frmInventairePotions.Show();
+        }
+
+        private void PbEnnemi_Click(object sender, EventArgs e)
+        {
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
             {
-                if (Globale.choixHeros.GetNomPersonnage() == lesHeros[herosChoisie].GetNomPersonnage())
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
                 {
+                    Globale.lesHeros[herosChoisie].RecevoirDesDegats(Globale.choixHeros.GetDegatPersonnage());
                     // Le héros attaque l'ennemi choisi
-                    lesHeros[herosChoisie].Attaquer(lesEnnemis[ennemiChoisie]);
+                    Globale.lesHeros[herosChoisie].Attaquer(Globale.lesEnnemis[ennemiChoisie]);
 
                     // Mettre à jour l'affichage des points de vie de l'ennemi
-                    LbPointsVieEnnemi.Text = $"{lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
+                    LbPointsVieEnnemi.Text = $"{Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
 
                     // Vérifier si l'ennemi est battu
-                    if (lesEnnemis[ennemiChoisie].GetPointsViePersonnage() <= 0)
+                    if (Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage() <= 0)
                     {
                         Random random = new Random();
                         int nombreExperienceGagne = random.Next(15, 31);
                         MessageBox.Show("L'ennemi a été battu ! Tu as gagné " + nombreExperienceGagne + " expériences !");
-                        lesHeros[herosChoisie].AjouterExperience(nombreExperienceGagne);
-                        FrmExploration frmExploration = new FrmExploration(lesHeros, lesEnnemis, lesArmes, lesPotions);
+                        Globale.lesHeros[herosChoisie].AjouterExperience(nombreExperienceGagne);
+                        FrmExploration frmExploration = new FrmExploration();
                         frmExploration.Show();
                         this.Close();
                         return;
                     }
 
                     // L'ennemi riposte
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi1")
+                    if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi1")
                     {
                         int nombreAleatoireDegatEnnemi1 = random.Next(3, 7);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi1);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi1);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi2")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi2")
                     {
                         int nombreAleatoireDegatEnnemi2 = random.Next(4, 8);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi2);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi2);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi3")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi3")
                     {
                         int nombreAleatoireDegatEnnemi3 = random.Next(6, 12);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi3);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi3);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi4")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi4")
                     {
                         int nombreAleatoireDegatEnnemi4 = random.Next(8, 15);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi4);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi4);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi5")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi5")
                     {
                         int nombreAleatoireDegatEnnemi5 = random.Next(10, 20);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi5);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi5);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi6")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi6")
                     {
                         int nombreAleatoireDegatEnnemi6 = random.Next(12, 25);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi6);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi6);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
-                    if (lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi7")
+                    else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi7")
                     {
                         int nombreAleatoireDegatEnnemi7 = random.Next(15, 30);
-                        lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi7);
-                        lesEnnemis[ennemiChoisie].Attaquer(lesHeros[herosChoisie]);
+                        Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi7);
+                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
 
-                    LbPointsVieHeros.Text = $"{lesHeros[herosChoisie].GetPointsViePersonnage()} / {lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
 
-                    if (lesHeros[herosChoisie].GetPointsViePersonnage() <= 0)
+                    Globale.lesEnnemis[ennemiChoisie].Attaquer(Globale.lesHeros[herosChoisie]);
+                    LbPointsVieHeros.Text = $"{Globale.lesHeros[herosChoisie].GetPointsViePersonnage()} / {Globale.lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
+
+                    if (Globale.lesHeros[herosChoisie].GetPointsViePersonnage() <= 0)
                     {
                         Random random = new Random();
                         int nombreExperiencePerdu = random.Next(10, 16);
                         MessageBox.Show("Vous avez été battu ! Tu as perdu " + nombreExperiencePerdu + " expériences.");
-                        lesHeros[herosChoisie].RetirerExperience(nombreExperiencePerdu);
-                        FrmExploration frmExploration = new FrmExploration(lesHeros, lesEnnemis, lesArmes, lesPotions);
+                        Globale.lesHeros[herosChoisie].RetirerExperience(nombreExperiencePerdu);
+                        FrmExploration frmExploration = new FrmExploration();
                         frmExploration.Show();
                         this.Close();
                         return;
@@ -133,33 +140,33 @@ namespace RPG_Forêt_des_Ombres
                 }
             }
         }
+
         public int GenererEnnemiAleatoire()
         {
             Random random = new Random();
-            int ennemi = random.Next(lesEnnemis.Count);
+            int ennemi = random.Next(Globale.lesEnnemis.Count);
             return ennemi;
         }
 
         private void BtnFuite_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Veux-tu vraiment prendre la fuite ?", "Prendre la fuite ?", MessageBoxButtons.YesNo);
-            unInventaire.Clear();
-            for (herosChoisie = 0; herosChoisie < lesHeros.Count; herosChoisie++)
+            Globale.unInventaire.Clear();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
             {
-                if (Globale.choixHeros.GetNomPersonnage() == lesHeros[herosChoisie].GetNomPersonnage())
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
                 {
-                    lesHeros[herosChoisie].RetirerExperience(50);
+                    Globale.lesHeros[herosChoisie].RetirerExperience(50);
                 }
             }
-            FrmExploration frmExploration = new FrmExploration(lesHeros, lesEnnemis, lesArmes, lesPotions);
+            FrmExploration frmExploration = new FrmExploration();
             frmExploration.Show();
             this.Hide();
         }
 
-
-        private void LbPointsVieParDefault_Click(object sender, EventArgs e)
+        public void MettreAJourPointsVieHeros()
         {
-
+            LbPointsVieHeros.Text = $"{Globale.choixHeros.GetPointsViePersonnage()} / {Globale.choixHeros.GetPointsViePaeDefautl()}";
         }
     }
 }

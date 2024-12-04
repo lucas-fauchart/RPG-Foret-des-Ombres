@@ -2,25 +2,15 @@
 {
     public partial class FrmExploration : Form
     {
-        private Random random = new Random();
-        private List<Objet> unInventaire = new List<Objet>();
-        private List<Heros> lesHeros;
-        private List<Ennemi> lesEnnemis;
-        private List<Arme> lesArmes;
-        private List<Potion> lesPotions;
-
-        internal FrmExploration(List<Heros> lesHeros, List<Ennemi> lesEnnemis, List<Arme> lesArmes, List<Potion> lesPotions)
+        internal FrmExploration()
         {
             InitializeComponent();
-            this.lesHeros = lesHeros;
-            this.lesEnnemis = lesEnnemis;
-            this.lesArmes = lesArmes;
-            this.lesPotions = lesPotions;
         }
 
         private void FrmExploration_Load(object sender, EventArgs e)
         {
-            Globale.choixHeros = lesHeros[0];
+            this.BackgroundImage = Image.FromFile("Images/Fond/FondExploration.png");
+            Globale.unInventaire.Clear();
 
             LbExperience.Text = (Globale.choixHeros.GetExperience().ToString() + "/100");
             LbNiveau.Text = Globale.choixHeros.GetNiveau().ToString();
@@ -30,8 +20,8 @@
         {
             Random random = new Random();
             int nombreAleatoire = random.Next(0, 100);
-            int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
-            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
+            int nombreArmeInventaire = Globale.unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = Globale.unInventaire.OfType<Potion>().Count();
 
             if (nombreArmeInventaire == 1 && nombrePotionInventaire == 2)
             {
@@ -39,7 +29,7 @@
                 {
                     TbListeEvenement.AppendText("Au combat ! Vous venez de rencontrer un ennemi. \r\n");
                     //Ouvre interface combat
-                    FrmCombat frmCombat = new FrmCombat(lesHeros, lesEnnemis, unInventaire);
+                    FrmCombat frmCombat = new FrmCombat();
                     frmCombat.Show();
                     this.Hide();
                 }
@@ -51,7 +41,7 @@
             }
             else if (nombreAleatoire > 0 && nombreAleatoire < 98)
             {
-                if (unInventaire.Count < 3)
+                if (Globale.unInventaire.Count < 3)
                 {
                     GenererObjetAleatoire();
                     AfficherInventaire();
@@ -80,7 +70,7 @@
 
         private void BtnVillage_Click(object sender, EventArgs e)
         {
-            FrmVillage frmVillage = new FrmVillage(lesHeros, lesArmes, lesPotions);
+            FrmVillage frmVillage = new FrmVillage();
             frmVillage.Show();
             this.Hide();
         }
@@ -89,19 +79,19 @@
         {
             Random random = new Random();
             int choix = random.Next(0, 2);
-            int nombreArmeInventaire = unInventaire.OfType<Arme>().Count();
-            int nombrePotionInventaire = unInventaire.OfType<Potion>().Count();
+            int nombreArmeInventaire = Globale.unInventaire.OfType<Arme>().Count();
+            int nombrePotionInventaire = Globale.unInventaire.OfType<Potion>().Count();
             if (nombreArmeInventaire < 1)
             {
-                int armeChoisie = random.Next(lesArmes.Count);
-                Arme arme = lesArmes[armeChoisie];
-                unInventaire.Add(arme);
+                int armeChoisie = random.Next(Globale.lesArmes.Count);
+                Arme arme = Globale.lesArmes[armeChoisie];
+                Globale.unInventaire.Add(arme);
             }
             else if (nombrePotionInventaire < 2)
             {
-                int potionChoisie = random.Next(lesPotions.Count);
-                Potion potion = lesPotions[potionChoisie];
-                unInventaire.Add(potion);
+                int potionChoisie = random.Next(Globale.lesPotions.Count);
+                Potion potion = Globale.lesPotions[potionChoisie];
+                Globale.unInventaire.Add(potion);
             }
         }
 
@@ -109,7 +99,7 @@
         {
             FlpInventaireJoueur.Controls.Clear();
 
-            foreach (Objet unObjet in unInventaire)
+            foreach (Objet unObjet in Globale.unInventaire)
             {
                 Panel panelObjet = new Panel() { Width = 80, Height = 80, BorderStyle = BorderStyle.FixedSingle };
 

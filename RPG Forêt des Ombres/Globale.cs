@@ -8,7 +8,12 @@ namespace RPG_Forêt_des_Ombres
 {
     internal class Globale
     {
-        //private List<Heros> lesHeros = new List<Heros>();
+        public static List<Heros> lesHeros = new List<Heros>();
+        public static List<Ennemi> lesEnnemis = new List<Ennemi>();
+        public static List<Potion> lesPotions = new List<Potion>();
+        public static List<Arme> lesArmes = new List<Arme>();
+        public static List<Objet> unInventaire = new List<Objet>();
         public static Heros? choixHeros;
+
     }
 }

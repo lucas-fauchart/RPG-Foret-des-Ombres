@@ -7,23 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RPG_Forêt_des_Ombres
 {
-    public partial class FrmArmesPotions : Form
+    public partial class FrmArme : Form
     {
-        internal FrmArmesPotions()
+        public FrmArme()
         {
             InitializeComponent();
         }
 
-        private void FrmArmesPotions_Load(object sender, EventArgs e)
+        private void PbEpee_Click(object sender, EventArgs e)
         {
-            this.BackgroundImage = Image.FromFile("Images/Fond/FondVillage.png");
+
+        }
+
+        private void LbDescriptionBatteBaseball_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PbHache_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmArme_Load(object sender, EventArgs e)
+        {
             BtnRetour.BackgroundImage = Image.FromFile("Images/Bouton/BoutonRetour.png");
-            BtnArme.BackgroundImage = Image.FromFile("Images/Bouton/BoutonArme.png");
-            BtnPotion.BackgroundImage = Image.FromFile("Images/Bouton/BoutonPotion.png");
 
             Arme uneArmeMarteau = Globale.lesArmes[0];
             PbMarteau.Image = uneArmeMarteau.GetImageObjet();
@@ -54,43 +65,13 @@ namespace RPG_Forêt_des_Ombres
             LbNomEpee.Text = uneArmeEpee.GetNomObjet();
             LbDescriptionEpee.Text = uneArmeEpee.GetDescriptionObjet();
             LbDegatSupplementaireEpee.Text = "Dégât : " + uneArmeEpee.GetDegatsPossible();
-
-            Potion unePotionPotionGuerisonFaible = Globale.lesPotions[0];
-            PbPotionGuerisonFaible.Image = unePotionPotionGuerisonFaible.GetImageObjet();
-            LbNomPotionGuerisionFaible.Text = unePotionPotionGuerisonFaible.GetNomObjet();
-            LbDescriptionPotionGuerisonFaible.Text = unePotionPotionGuerisonFaible.GetDescriptionObjet();
-            LbPointsVieSupplementaireElexirRegeneration.Text = "Vie : " + unePotionPotionGuerisonFaible.GetBonusPointsVie().ToString();
-
-            Potion unePotionElexirRegeneration = Globale.lesPotions[1];
-            PbElexirRegeneration.Image = unePotionElexirRegeneration.GetImageObjet();
-            LbNomElexirRegeneration.Text = unePotionElexirRegeneration.GetNomObjet();
-            LbDescriptionElexirRegeneration.Text = unePotionElexirRegeneration.GetDescriptionObjet();
-            LbPointsVieSupplementaireElexirRegeneration.Text = "Vie : " + unePotionElexirRegeneration.GetBonusPointsVie().ToString();
-
-            Potion unePotionNectarVie = Globale.lesPotions[2];
-            PbNectarVie.Image = unePotionNectarVie.GetImageObjet();
-            LbNomNectarVie.Text = unePotionNectarVie.GetNomObjet();
-            LbDescriptionNectarVie.Text = unePotionNectarVie.GetDescriptionObjet();
-            LbPointsVieSupplementaireNectarVie.Text = "Vie : " + unePotionNectarVie.GetBonusPointsVie().ToString();
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)
         {
-            FrmVillage frmVillage = new FrmVillage();
-            frmVillage.Show();
+            FrmArmesPotions frmArmesPotions = new FrmArmesPotions();
+            frmArmesPotions.Show();
             this.Hide();
-        }
-
-        private void BtnArme_Click(object sender, EventArgs e)
-        {
-            FrmArme frmArme = new FrmArme();
-            frmArme.Show();
-            this.Hide();
-        }
-
-        private void BtnPotion_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

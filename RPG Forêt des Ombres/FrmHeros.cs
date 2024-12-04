@@ -20,6 +20,8 @@ namespace RPG_Forêt_des_Ombres
 
         private void FrmHeros_Load(object sender, EventArgs e)
         {
+            BtnRetour.BackgroundImage = Image.FromFile("Images/Bouton/BoutonRetour.png");
+
             foreach (Heros unHeros in Globale.lesHeros)
             {
                 CbNomHeros.Items.Add(unHeros.GetNomPersonnage());

@@ -69,6 +69,8 @@
             LbNomNectarVie = new Label();
             LbDescriptionNectarVie = new Label();
             BtnRetour = new Button();
+            BtnArme = new Button();
+            BtnPotion = new Button();
             ((System.ComponentModel.ISupportInitialize)PbMarteau).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbPioche).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbHache).BeginInit();
@@ -117,7 +119,6 @@
             PbHache.SizeMode = PictureBoxSizeMode.Zoom;
             PbHache.TabIndex = 2;
             PbHache.TabStop = false;
-            PbHache.Click += PbHache_Click;
             // 
             // PbBatteBaseball
             // 
@@ -476,18 +477,51 @@
             // 
             // BtnRetour
             // 
+            BtnRetour.BackColor = Color.Transparent;
+            BtnRetour.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRetour.FlatAppearance.BorderSize = 0;
+            BtnRetour.FlatStyle = FlatStyle.Flat;
             BtnRetour.Location = new Point(12, 12);
             BtnRetour.Name = "BtnRetour";
             BtnRetour.Size = new Size(60, 60);
             BtnRetour.TabIndex = 20;
-            BtnRetour.Text = "<-";
-            BtnRetour.UseVisualStyleBackColor = true;
+            BtnRetour.UseVisualStyleBackColor = false;
+            BtnRetour.Click += BtnRetour_Click;
+            // 
+            // BtnArme
+            // 
+            BtnArme.BackColor = Color.Transparent;
+            BtnArme.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnArme.FlatAppearance.BorderSize = 0;
+            BtnArme.FlatStyle = FlatStyle.Flat;
+            BtnArme.Location = new Point(12, 340);
+            BtnArme.Name = "BtnArme";
+            BtnArme.Size = new Size(160, 160);
+            BtnArme.TabIndex = 21;
+            BtnArme.UseVisualStyleBackColor = false;
+            BtnArme.Click += BtnArme_Click;
+            // 
+            // BtnPotion
+            // 
+            BtnPotion.BackColor = Color.Transparent;
+            BtnPotion.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnPotion.FlatAppearance.BorderSize = 0;
+            BtnPotion.FlatStyle = FlatStyle.Flat;
+            BtnPotion.Location = new Point(557, 340);
+            BtnPotion.Name = "BtnPotion";
+            BtnPotion.Size = new Size(160, 160);
+            BtnPotion.TabIndex = 22;
+            BtnPotion.UseVisualStyleBackColor = false;
+            BtnPotion.Click += BtnPotion_Click;
             // 
             // FrmArmesPotions
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(BtnPotion);
+            Controls.Add(BtnArme);
             Controls.Add(BtnRetour);
             Controls.Add(Pl8);
             Controls.Add(Pl7);
@@ -580,5 +614,7 @@
         private Label LbNomNectarVie;
         private Label LbDescriptionNectarVie;
         private Button BtnRetour;
+        private Button BtnArme;
+        private Button BtnPotion;
     }
 }

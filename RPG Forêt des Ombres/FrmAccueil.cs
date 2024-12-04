@@ -38,9 +38,9 @@ namespace RPG_Forêt_des_Ombres
             int nombreAleatoireDegatEpee = random.Next(12, 17);
             Globale.lesArmes.Add(new Arme("Arme", "Marteau", "Un outil lourd et puissant, conçu pour écraser.", Image.FromFile("Images/marteau.png"), "2 - 7", nombreAleatoireDegatMarteau));
             Globale.lesArmes.Add(new Arme("Arme", "Pioche", "Un outil robuste, capable de percer les ennemis.", Image.FromFile("Images/pioche.png"), "5 - 10", nombreAleatoireDegatPioche));
-            Globale.lesArmes.Add(new Arme("Arme", "Hache", "Une lame affûtée, parfaite pour des coups rapides et puissants..", Image.FromFile("Images/hache.png"), "7 - 12", nombreAleatoireDegatHache));
+            Globale.lesArmes.Add(new Arme("Arme", "Hache", "Une lame affûtée, parfaite pour des coups rapides et puissants.", Image.FromFile("Images/hache.png"), "7 - 12", nombreAleatoireDegatHache));
             Globale.lesArmes.Add(new Arme("Arme", "Batte de baseball", "Simple mais efficace, elle repousse et assomme les ennemis.", Image.FromFile("Images/batteBaseball.png"), "10 - 15", nombreAleatoireDegatBatteBaseball));
-            Globale.lesArmes.Add(new Arme("Arme", "Epée", "Une arme équilibrée, symbole classique de maîtrise et de combat..", Image.FromFile("Images/epee.png"), "12 - 17", nombreAleatoireDegatEpee));
+            Globale.lesArmes.Add(new Arme("Arme", "Epée", "Une arme équilibrée, symbole classique de maîtrise et de combat.", Image.FromFile("Images/epee.png"), "12 - 17", nombreAleatoireDegatEpee));
 
             //Génére les potions
             Globale.lesPotions.Add(new Potion("Potion", "Potion de guérison faible", "Un breuvage simple, parfait pour des blessures légères.", Image.FromFile("Images/potionGuerisonFaible.png"), 30));

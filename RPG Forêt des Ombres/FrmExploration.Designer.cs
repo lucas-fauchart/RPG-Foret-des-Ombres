@@ -40,6 +40,8 @@
             FlpInventaireJoueur = new FlowLayoutPanel();
             Lb1 = new Label();
             Lb3 = new Label();
+            BtnRetour = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // BtnForet1
@@ -105,69 +107,121 @@
             // Lb2
             // 
             Lb2.AutoSize = true;
-            Lb2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Lb2.Location = new Point(23, 71);
+            Lb2.BackColor = Color.Transparent;
+            Lb2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            Lb2.ForeColor = Color.White;
+            Lb2.Location = new Point(33, 71);
             Lb2.Name = "Lb2";
-            Lb2.Size = new Size(136, 31);
+            Lb2.Size = new Size(174, 38);
             Lb2.TabIndex = 5;
             Lb2.Text = "Expérience :";
             // 
             // LbNiveau
             // 
             LbNiveau.AutoSize = true;
-            LbNiveau.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LbNiveau.Location = new Point(125, 27);
+            LbNiveau.BackColor = Color.Transparent;
+            LbNiveau.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LbNiveau.ForeColor = Color.White;
+            LbNiveau.Location = new Point(155, 27);
             LbNiveau.Name = "LbNiveau";
-            LbNiveau.Size = new Size(26, 31);
+            LbNiveau.Size = new Size(33, 38);
             LbNiveau.TabIndex = 6;
             LbNiveau.Text = "0";
             // 
             // LbExperience
             // 
             LbExperience.AutoSize = true;
-            LbExperience.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LbExperience.Location = new Point(165, 71);
+            LbExperience.BackColor = Color.Transparent;
+            LbExperience.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            LbExperience.ForeColor = Color.White;
+            LbExperience.Location = new Point(204, 71);
             LbExperience.Name = "LbExperience";
-            LbExperience.Size = new Size(47, 31);
+            LbExperience.Size = new Size(61, 38);
             LbExperience.TabIndex = 7;
             LbExperience.Text = "0/0";
             // 
             // TbListeEvenement
             // 
-            TbListeEvenement.Location = new Point(699, 27);
+            TbListeEvenement.BackColor = Color.SandyBrown;
+            TbListeEvenement.BorderStyle = BorderStyle.None;
+            TbListeEvenement.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            TbListeEvenement.ForeColor = Color.White;
+            TbListeEvenement.Location = new Point(648, 27);
             TbListeEvenement.Multiline = true;
             TbListeEvenement.Name = "TbListeEvenement";
             TbListeEvenement.ReadOnly = true;
             TbListeEvenement.ScrollBars = ScrollBars.Vertical;
-            TbListeEvenement.Size = new Size(259, 67);
+            TbListeEvenement.Size = new Size(310, 99);
             TbListeEvenement.TabIndex = 8;
             // 
             // FlpInventaireJoueur
             // 
+            FlpInventaireJoueur.BackColor = Color.SandyBrown;
             FlpInventaireJoueur.Location = new Point(33, 442);
             FlpInventaireJoueur.Name = "FlpInventaireJoueur";
-            FlpInventaireJoueur.Size = new Size(271, 88);
+            FlpInventaireJoueur.Size = new Size(259, 88);
             FlpInventaireJoueur.TabIndex = 10;
             // 
             // Lb1
             // 
             Lb1.AutoSize = true;
-            Lb1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Lb1.Location = new Point(23, 27);
+            Lb1.BackColor = Color.Transparent;
+            Lb1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            Lb1.ForeColor = Color.White;
+            Lb1.Location = new Point(33, 27);
             Lb1.Name = "Lb1";
-            Lb1.Size = new Size(96, 31);
+            Lb1.Size = new Size(125, 38);
             Lb1.TabIndex = 4;
             Lb1.Text = "Niveau :";
             // 
             // Lb3
             // 
             Lb3.AutoSize = true;
-            Lb3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Lb3.Location = new Point(33, 408);
+            Lb3.BackColor = Color.Transparent;
+            Lb3.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            Lb3.ForeColor = Color.Transparent;
+            Lb3.ImageAlign = ContentAlignment.MiddleLeft;
+            Lb3.Location = new Point(33, 401);
             Lb3.Name = "Lb3";
-            Lb3.Size = new Size(115, 31);
+            Lb3.Size = new Size(150, 38);
             Lb3.TabIndex = 11;
             Lb3.Text = "Inventaire";
+            Lb3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // BtnRetour
+            // 
+            BtnRetour.BackColor = Color.SaddleBrown;
+            BtnRetour.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRetour.FlatAppearance.BorderSize = 0;
+            BtnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnRetour.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            BtnRetour.FlatStyle = FlatStyle.Flat;
+            BtnRetour.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnRetour.ForeColor = Color.Transparent;
+            BtnRetour.Location = new Point(464, 468);
+            BtnRetour.Name = "BtnRetour";
+            BtnRetour.Size = new Size(112, 28);
+            BtnRetour.TabIndex = 22;
+            BtnRetour.Text = "SAUVEGARDER";
+            BtnRetour.UseVisualStyleBackColor = false;
+            BtnRetour.Click += BtnRetour_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.SaddleBrown;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = Color.Transparent;
+            button1.Location = new Point(423, 502);
+            button1.Name = "button1";
+            button1.Size = new Size(192, 28);
+            button1.TabIndex = 23;
+            button1.Text = "SAUVEGARDER ET QUITTER";
+            button1.UseVisualStyleBackColor = false;
             // 
             // FrmExploration
             // 
@@ -176,6 +230,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(button1);
+            Controls.Add(BtnRetour);
             Controls.Add(Lb3);
             Controls.Add(FlpInventaireJoueur);
             Controls.Add(TbListeEvenement);
@@ -213,5 +269,7 @@
         private FlowLayoutPanel FlpInventaireJoueur;
         private Label Lb1;
         private Label Lb3;
+        private Button BtnRetour;
+        private Button button1;
     }
 }

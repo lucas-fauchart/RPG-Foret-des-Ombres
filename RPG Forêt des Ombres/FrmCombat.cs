@@ -168,5 +168,69 @@ namespace RPG_Forêt_des_Ombres
         {
             LbPointsVieHeros.Text = $"{Globale.choixHeros.GetPointsViePersonnage()} / {Globale.choixHeros.GetPointsViePaeDefautl()}";
         }
+
+        private void BtnFuite2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Veux-tu vraiment prendre la fuite ?", "Prendre la fuite ?", MessageBoxButtons.YesNo);
+            Globale.unInventaire.Clear();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
+            {
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
+                {
+                    Globale.lesHeros[herosChoisie].RetirerExperience(50);
+                }
+            }
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
+
+        private void BtnFuite3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Veux-tu vraiment prendre la fuite ?", "Prendre la fuite ?", MessageBoxButtons.YesNo);
+            Globale.unInventaire.Clear();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
+            {
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
+                {
+                    Globale.lesHeros[herosChoisie].RetirerExperience(50);
+                }
+            }
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
+
+        private void BtnFuite12_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Veux-tu vraiment prendre la fuite ?", "Prendre la fuite ?", MessageBoxButtons.YesNo);
+            Globale.unInventaire.Clear();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
+            {
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
+                {
+                    Globale.lesHeros[herosChoisie].RetirerExperience(50);
+                }
+            }
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
+
+        private void BtnFuite5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Veux-tu vraiment prendre la fuite ?", "Prendre la fuite ?", MessageBoxButtons.YesNo);
+            Globale.unInventaire.Clear();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
+            {
+                if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
+                {
+                    Globale.lesHeros[herosChoisie].RetirerExperience(50);
+                }
+            }
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
     }
 }

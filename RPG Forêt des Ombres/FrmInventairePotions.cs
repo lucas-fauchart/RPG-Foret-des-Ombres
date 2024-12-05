@@ -25,7 +25,8 @@ namespace RPG_Forêt_des_Ombres
 
         private void FrmInventairePotions_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Image.FromFile("Images/Fond/FondInventairePotion.png");
+            BtnRetour.BackgroundImage = Image.FromFile("Images/Bouton/BoutonRetour.png");
+            this.BackgroundImage = Image.FromFile("Images/Fond/FondInventaire.png");
             foreach (Objet unObjet in unInventaire)
             {
                 if (unObjet.GetTypeObjet() == "Potion")
@@ -48,7 +49,8 @@ namespace RPG_Forêt_des_Ombres
                             Height = 75,
                             Image = unObjet.GetImageObjet(),
                             SizeMode = PictureBoxSizeMode.Zoom,
-                            Dock = DockStyle.Top
+                            Dock = DockStyle.Top,
+                            BorderStyle = BorderStyle.None
                         };
 
                         // Ajouter la PictureBox au panel
@@ -136,6 +138,11 @@ namespace RPG_Forêt_des_Ombres
                     };
                 }
             }
+        }
+
+        private void FlpInventaireJoueur_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -17,21 +17,6 @@ namespace RPG_Forêt_des_Ombres
             InitializeComponent();
         }
 
-        private void PbEpee_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LbDescriptionBatteBaseball_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PbHache_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmArme_Load(object sender, EventArgs e)
         {
             BtnRetour.BackgroundImage = Image.FromFile("Images/Bouton/BoutonRetour.png");

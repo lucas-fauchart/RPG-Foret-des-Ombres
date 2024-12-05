@@ -1,10 +1,12 @@
 using System;
+using System.Media;
 
 namespace RPG_Forêt_des_Ombres
 {
     public partial class FrmAccueil : Form
     {
         Random random = new Random();
+        private SoundPlayer soundPlayer;
 
         public FrmAccueil()
         {
@@ -13,6 +15,8 @@ namespace RPG_Forêt_des_Ombres
 
         private void FrmAccueil_Load(object sender, EventArgs e)
         {
+            StartBackgroundMusic();
+
             this.BackgroundImage = Image.FromFile("Images/Fond/FondAccueil.png");
             //Génére les héros
             Globale.lesHeros.Add(new Heros("Arthur", "Un jeune héros déterminé à prouver sa valeur.", 100, 100, 10, Image.FromFile("Images/arthur.png"), 0, 0, 10, Image.FromFile("Images/Fond/FondVillageArthur.png")));
@@ -51,6 +55,35 @@ namespace RPG_Forêt_des_Ombres
         }
 
         private void BtnChargerPartie_Click(object sender, EventArgs e)
+        {
+            //Permet d'ouvrir la fenêtre
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
+
+        private void StartBackgroundMusic()
+        {
+            soundPlayer = new SoundPlayer("Images/MusiqueJeu.wav");
+
+            soundPlayer.PlayLooping();
+        }
+
+        private void StopBackgroundMusic()
+        {
+            if (soundPlayer != null)
+            {
+                soundPlayer.Stop();
+            }
+        }
+
+        private void BtnQuitter_Click(object sender, EventArgs e)
+        {
+            StopBackgroundMusic();
+            Application.Exit();
+        }
+
+        private void BtnNouvellePartie_Click(object sender, EventArgs e)
         {
             //Permet d'ouvrir la fenêtre
             FrmExploration frmExploration = new FrmExploration();

@@ -154,7 +154,6 @@
             LbDescriptionBatteBaseball.Size = new Size(310, 50);
             LbDescriptionBatteBaseball.TabIndex = 10;
             LbDescriptionBatteBaseball.Text = "0";
-            LbDescriptionBatteBaseball.Click += LbDescriptionBatteBaseball_Click;
             // 
             // Pl3
             // 
@@ -210,7 +209,6 @@
             PbEpee.SizeMode = PictureBoxSizeMode.Zoom;
             PbEpee.TabIndex = 24;
             PbEpee.TabStop = false;
-            PbEpee.Click += PbEpee_Click;
             // 
             // Pl2
             // 
@@ -319,7 +317,6 @@
             PbHache.SizeMode = PictureBoxSizeMode.Zoom;
             PbHache.TabIndex = 19;
             PbHache.TabStop = false;
-            PbHache.Click += PbHache_Click;
             // 
             // PbPioche
             // 
@@ -380,7 +377,7 @@
             MinimizeBox = false;
             Name = "FrmArme";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmArme";
+            Text = "Forêt des ombres - Armes";
             Load += FrmArme_Load;
             Pl5.ResumeLayout(false);
             Pl5.PerformLayout();

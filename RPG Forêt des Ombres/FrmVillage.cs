@@ -20,6 +20,7 @@ namespace RPG_Forêt_des_Ombres
         private void FrmVillage_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Image.FromFile("Images/Fond/FondVillage.png");
+            BtnRetour.BackgroundImage = Image.FromFile("Images/Bouton/BoutonRetour.png");
             BtnHeros.BackgroundImage = Image.FromFile("Images/Bouton/BoutonHeros.png");
             BtnArmesPotions.BackgroundImage = Image.FromFile("Images/Bouton/BoutonArmePotion.png");
             BtnParametres.BackgroundImage = Image.FromFile("Images/Bouton/BoutonParametre.png");

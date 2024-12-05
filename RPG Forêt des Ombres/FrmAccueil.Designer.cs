@@ -33,6 +33,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            BtnQuitter = new Button();
             SuspendLayout();
             // 
             // BtnNouvellePartie
@@ -46,12 +47,13 @@
             BtnNouvellePartie.FlatStyle = FlatStyle.Flat;
             BtnNouvellePartie.Font = new Font("Segoe UI Black", 15F, FontStyle.Bold, GraphicsUnit.Point);
             BtnNouvellePartie.ForeColor = Color.Gold;
-            BtnNouvellePartie.Location = new Point(130, 332);
+            BtnNouvellePartie.Location = new Point(128, 283);
             BtnNouvellePartie.Name = "BtnNouvellePartie";
             BtnNouvellePartie.Size = new Size(326, 91);
             BtnNouvellePartie.TabIndex = 1;
             BtnNouvellePartie.Text = "NOUVELLE PARTIE";
             BtnNouvellePartie.UseVisualStyleBackColor = false;
+            BtnNouvellePartie.Click += BtnNouvellePartie_Click;
             // 
             // BtnChargerPartie
             // 
@@ -64,7 +66,7 @@
             BtnChargerPartie.FlatStyle = FlatStyle.Flat;
             BtnChargerPartie.Font = new Font("Segoe UI Black", 15F, FontStyle.Bold, GraphicsUnit.Point);
             BtnChargerPartie.ForeColor = Color.Gold;
-            BtnChargerPartie.Location = new Point(508, 332);
+            BtnChargerPartie.Location = new Point(506, 283);
             BtnChargerPartie.Name = "BtnChargerPartie";
             BtnChargerPartie.Size = new Size(326, 91);
             BtnChargerPartie.TabIndex = 2;
@@ -78,7 +80,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.MediumSeaGreen;
-            label1.Location = new Point(33, 136);
+            label1.Location = new Point(31, 87);
             label1.Name = "label1";
             label1.Size = new Size(368, 124);
             label1.TabIndex = 3;
@@ -90,7 +92,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Showcard Gothic", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.LimeGreen;
-            label2.Location = new Point(369, 178);
+            label2.Location = new Point(367, 129);
             label2.Name = "label2";
             label2.Size = new Size(139, 74);
             label2.TabIndex = 4;
@@ -102,11 +104,30 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Showcard Gothic", 60F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(492, 136);
+            label3.Location = new Point(490, 87);
             label3.Name = "label3";
             label3.Size = new Size(451, 124);
             label3.TabIndex = 5;
             label3.Text = "Ombres";
+            // 
+            // BtnQuitter
+            // 
+            BtnQuitter.Anchor = AnchorStyles.None;
+            BtnQuitter.BackColor = Color.Transparent;
+            BtnQuitter.FlatAppearance.BorderColor = Color.Silver;
+            BtnQuitter.FlatAppearance.BorderSize = 2;
+            BtnQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnQuitter.FlatAppearance.MouseOverBackColor = Color.Sienna;
+            BtnQuitter.FlatStyle = FlatStyle.Flat;
+            BtnQuitter.Font = new Font("Segoe UI Black", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnQuitter.ForeColor = Color.Gold;
+            BtnQuitter.Location = new Point(390, 424);
+            BtnQuitter.Name = "BtnQuitter";
+            BtnQuitter.Size = new Size(179, 51);
+            BtnQuitter.TabIndex = 6;
+            BtnQuitter.Text = "QUITTER";
+            BtnQuitter.UseVisualStyleBackColor = false;
+            BtnQuitter.Click += BtnQuitter_Click;
             // 
             // FrmAccueil
             // 
@@ -115,6 +136,7 @@
             BackColor = Color.SaddleBrown;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(BtnQuitter);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -137,5 +159,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button BtnQuitter;
     }
 }

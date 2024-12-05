@@ -29,40 +29,49 @@
         private void InitializeComponent()
         {
             FlpInventaireJoueur = new FlowLayoutPanel();
-            BtnRevenirAuCombat = new Button();
+            BtnRetour = new Button();
             SuspendLayout();
             // 
             // FlpInventaireJoueur
             // 
-            FlpInventaireJoueur.Location = new Point(12, 16);
+            FlpInventaireJoueur.BackColor = Color.Transparent;
+            FlpInventaireJoueur.Location = new Point(21, 12);
             FlpInventaireJoueur.Name = "FlpInventaireJoueur";
-            FlpInventaireJoueur.Size = new Size(235, 88);
+            FlpInventaireJoueur.Size = new Size(187, 88);
             FlpInventaireJoueur.TabIndex = 11;
+            FlpInventaireJoueur.Paint += FlpInventaireJoueur_Paint;
             // 
-            // BtnRevenirAuCombat
+            // BtnRetour
             // 
-            BtnRevenirAuCombat.Location = new Point(55, 126);
-            BtnRevenirAuCombat.Name = "BtnRevenirAuCombat";
-            BtnRevenirAuCombat.Size = new Size(150, 29);
-            BtnRevenirAuCombat.TabIndex = 12;
-            BtnRevenirAuCombat.Text = "Revenir au combat";
-            BtnRevenirAuCombat.UseVisualStyleBackColor = true;
-            BtnRevenirAuCombat.Click += BtnRevenirAuCombat_Click;
+            BtnRetour.BackColor = Color.Transparent;
+            BtnRetour.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRetour.FlatAppearance.BorderSize = 0;
+            BtnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnRetour.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnRetour.FlatStyle = FlatStyle.Flat;
+            BtnRetour.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnRetour.ForeColor = Color.White;
+            BtnRetour.Location = new Point(83, 120);
+            BtnRetour.Name = "BtnRetour";
+            BtnRetour.Size = new Size(62, 60);
+            BtnRetour.TabIndex = 12;
+            BtnRetour.UseVisualStyleBackColor = false;
+            BtnRetour.Click += BtnRevenirAuCombat_Click;
             // 
             // FrmInventairePotions
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(262, 167);
-            Controls.Add(BtnRevenirAuCombat);
+            ClientSize = new Size(216, 203);
+            Controls.Add(BtnRetour);
             Controls.Add(FlpInventaireJoueur);
             Location = new Point(100, 100);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmInventairePotions";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmInventairePotions";
+            Text = "Inventaire";
             Load += FrmInventairePotions_Load;
             ResumeLayout(false);
         }
@@ -70,6 +79,6 @@
         #endregion
 
         private FlowLayoutPanel FlpInventaireJoueur;
-        private Button BtnRevenirAuCombat;
+        private Button BtnRetour;
     }
 }

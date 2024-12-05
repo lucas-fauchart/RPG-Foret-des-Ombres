@@ -112,7 +112,7 @@
             LbPointsVieHeros.BackColor = Color.Transparent;
             LbPointsVieHeros.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LbPointsVieHeros.ForeColor = SystemColors.ButtonHighlight;
-            LbPointsVieHeros.Location = new Point(313, 419);
+            LbPointsVieHeros.Location = new Point(277, 419);
             LbPointsVieHeros.Name = "LbPointsVieHeros";
             LbPointsVieHeros.Size = new Size(57, 28);
             LbPointsVieHeros.TabIndex = 7;
@@ -125,7 +125,7 @@
             LbPointsVieEnnemi.BackColor = Color.Transparent;
             LbPointsVieEnnemi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LbPointsVieEnnemi.ForeColor = SystemColors.ButtonHighlight;
-            LbPointsVieEnnemi.Location = new Point(584, 275);
+            LbPointsVieEnnemi.Location = new Point(548, 275);
             LbPointsVieEnnemi.Name = "LbPointsVieEnnemi";
             LbPointsVieEnnemi.Size = new Size(57, 28);
             LbPointsVieEnnemi.TabIndex = 8;
@@ -144,6 +144,7 @@
             BtnFuite12.Size = new Size(180, 392);
             BtnFuite12.TabIndex = 9;
             BtnFuite12.UseVisualStyleBackColor = false;
+            BtnFuite12.Click += BtnFuite12_Click;
             // 
             // BtnFuite2
             // 
@@ -157,6 +158,7 @@
             BtnFuite2.Size = new Size(360, 168);
             BtnFuite2.TabIndex = 10;
             BtnFuite2.UseVisualStyleBackColor = false;
+            BtnFuite2.Click += BtnFuite2_Click;
             // 
             // BtnFuite3
             // 
@@ -170,6 +172,7 @@
             BtnFuite3.Size = new Size(240, 76);
             BtnFuite3.TabIndex = 11;
             BtnFuite3.UseVisualStyleBackColor = false;
+            BtnFuite3.Click += BtnFuite3_Click;
             // 
             // BtnFuite5
             // 
@@ -183,6 +186,7 @@
             BtnFuite5.Size = new Size(131, 173);
             BtnFuite5.TabIndex = 12;
             BtnFuite5.UseVisualStyleBackColor = false;
+            BtnFuite5.Click += BtnFuite5_Click;
             // 
             // FrmCombat
             // 

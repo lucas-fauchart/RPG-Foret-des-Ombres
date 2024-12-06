@@ -40,8 +40,8 @@
             FlpInventaireJoueur = new FlowLayoutPanel();
             Lb1 = new Label();
             Lb3 = new Label();
-            BtnRetour = new Button();
-            button1 = new Button();
+            BtnSauvegarder = new Button();
+            BtnSauvegarderQuitter = new Button();
             SuspendLayout();
             // 
             // BtnForet1
@@ -188,40 +188,41 @@
             Lb3.Text = "Inventaire";
             Lb3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // BtnRetour
+            // BtnSauvegarder
             // 
-            BtnRetour.BackColor = Color.SaddleBrown;
-            BtnRetour.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnRetour.FlatAppearance.BorderSize = 0;
-            BtnRetour.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnRetour.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
-            BtnRetour.FlatStyle = FlatStyle.Flat;
-            BtnRetour.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnRetour.ForeColor = Color.Transparent;
-            BtnRetour.Location = new Point(464, 468);
-            BtnRetour.Name = "BtnRetour";
-            BtnRetour.Size = new Size(112, 28);
-            BtnRetour.TabIndex = 22;
-            BtnRetour.Text = "SAUVEGARDER";
-            BtnRetour.UseVisualStyleBackColor = false;
-            BtnRetour.Click += BtnRetour_Click;
+            BtnSauvegarder.BackColor = Color.SaddleBrown;
+            BtnSauvegarder.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnSauvegarder.FlatAppearance.BorderSize = 0;
+            BtnSauvegarder.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSauvegarder.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            BtnSauvegarder.FlatStyle = FlatStyle.Flat;
+            BtnSauvegarder.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnSauvegarder.ForeColor = Color.Transparent;
+            BtnSauvegarder.Location = new Point(464, 468);
+            BtnSauvegarder.Name = "BtnSauvegarder";
+            BtnSauvegarder.Size = new Size(112, 28);
+            BtnSauvegarder.TabIndex = 22;
+            BtnSauvegarder.Text = "SAUVEGARDER";
+            BtnSauvegarder.UseVisualStyleBackColor = false;
+            BtnSauvegarder.Click += BtnSauvegarder_Click;
             // 
-            // button1
+            // BtnSauvegarderQuitter
             // 
-            button1.BackColor = Color.SaddleBrown;
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button1.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(423, 502);
-            button1.Name = "button1";
-            button1.Size = new Size(192, 28);
-            button1.TabIndex = 23;
-            button1.Text = "SAUVEGARDER ET QUITTER";
-            button1.UseVisualStyleBackColor = false;
+            BtnSauvegarderQuitter.BackColor = Color.SaddleBrown;
+            BtnSauvegarderQuitter.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnSauvegarderQuitter.FlatAppearance.BorderSize = 0;
+            BtnSauvegarderQuitter.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSauvegarderQuitter.FlatAppearance.MouseOverBackColor = Color.SandyBrown;
+            BtnSauvegarderQuitter.FlatStyle = FlatStyle.Flat;
+            BtnSauvegarderQuitter.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnSauvegarderQuitter.ForeColor = Color.Transparent;
+            BtnSauvegarderQuitter.Location = new Point(480, 502);
+            BtnSauvegarderQuitter.Name = "BtnSauvegarderQuitter";
+            BtnSauvegarderQuitter.Size = new Size(78, 28);
+            BtnSauvegarderQuitter.TabIndex = 23;
+            BtnSauvegarderQuitter.Text = "QUITTER";
+            BtnSauvegarderQuitter.UseVisualStyleBackColor = false;
+            BtnSauvegarderQuitter.Click += BtnSauvegarderQuitter_Click;
             // 
             // FrmExploration
             // 
@@ -230,8 +231,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
-            Controls.Add(button1);
-            Controls.Add(BtnRetour);
+            Controls.Add(BtnSauvegarderQuitter);
+            Controls.Add(BtnSauvegarder);
             Controls.Add(Lb3);
             Controls.Add(FlpInventaireJoueur);
             Controls.Add(TbListeEvenement);
@@ -269,7 +270,7 @@
         private FlowLayoutPanel FlpInventaireJoueur;
         private Label Lb1;
         private Label Lb3;
-        private Button BtnRetour;
-        private Button button1;
+        private Button BtnSauvegarder;
+        private Button BtnSauvegarderQuitter;
     }
 }

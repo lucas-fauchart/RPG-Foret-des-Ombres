@@ -42,7 +42,9 @@ namespace RPG_Forêt_des_Ombres
 
         private void BtnParametres_Click(object sender, EventArgs e)
         {
-
+            FrmParametres frmParametres = new FrmParametres();
+            frmParametres.Show();
+            this.Hide();
         }
 
         private void BtnRetour_Click(object sender, EventArgs e)

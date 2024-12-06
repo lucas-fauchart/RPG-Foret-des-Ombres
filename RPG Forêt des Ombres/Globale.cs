@@ -14,6 +14,7 @@ namespace RPG_Forêt_des_Ombres
         public static List<Arme> lesArmes = new List<Arme>();
         public static List<Objet> unInventaire = new List<Objet>();
         public static Heros? choixHeros;
+        public static int nouvellesDonnees;
 
     }
 }

@@ -51,7 +51,7 @@
             BtnRetour.FlatStyle = FlatStyle.Flat;
             BtnRetour.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
             BtnRetour.ForeColor = Color.White;
-            BtnRetour.Location = new Point(83, 120);
+            BtnRetour.Location = new Point(84, 135);
             BtnRetour.Name = "BtnRetour";
             BtnRetour.Size = new Size(62, 60);
             BtnRetour.TabIndex = 12;
@@ -63,7 +63,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(216, 203);
+            ClientSize = new Size(216, 112);
             Controls.Add(BtnRetour);
             Controls.Add(FlpInventaireJoueur);
             Location = new Point(100, 100);

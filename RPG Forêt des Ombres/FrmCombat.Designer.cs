@@ -40,6 +40,9 @@
             BtnFuite2 = new Button();
             BtnFuite3 = new Button();
             BtnFuite5 = new Button();
+            LbDegatEnnemi = new Label();
+            LbDegatHeros = new Label();
+            LbPhrase = new Label();
             ((System.ComponentModel.ISupportInitialize)PbHeros).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbEnnemi).BeginInit();
             SuspendLayout();
@@ -112,7 +115,7 @@
             LbPointsVieHeros.BackColor = Color.Transparent;
             LbPointsVieHeros.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LbPointsVieHeros.ForeColor = SystemColors.ButtonHighlight;
-            LbPointsVieHeros.Location = new Point(277, 419);
+            LbPointsVieHeros.Location = new Point(293, 419);
             LbPointsVieHeros.Name = "LbPointsVieHeros";
             LbPointsVieHeros.Size = new Size(57, 28);
             LbPointsVieHeros.TabIndex = 7;
@@ -125,7 +128,7 @@
             LbPointsVieEnnemi.BackColor = Color.Transparent;
             LbPointsVieEnnemi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LbPointsVieEnnemi.ForeColor = SystemColors.ButtonHighlight;
-            LbPointsVieEnnemi.Location = new Point(548, 275);
+            LbPointsVieEnnemi.Location = new Point(564, 275);
             LbPointsVieEnnemi.Name = "LbPointsVieEnnemi";
             LbPointsVieEnnemi.Size = new Size(57, 28);
             LbPointsVieEnnemi.TabIndex = 8;
@@ -188,6 +191,43 @@
             BtnFuite5.UseVisualStyleBackColor = false;
             BtnFuite5.Click += BtnFuite5_Click;
             // 
+            // LbDegatEnnemi
+            // 
+            LbDegatEnnemi.AutoSize = true;
+            LbDegatEnnemi.BackColor = Color.Transparent;
+            LbDegatEnnemi.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LbDegatEnnemi.ForeColor = Color.White;
+            LbDegatEnnemi.Location = new Point(309, 201);
+            LbDegatEnnemi.Name = "LbDegatEnnemi";
+            LbDegatEnnemi.Size = new Size(22, 25);
+            LbDegatEnnemi.TabIndex = 13;
+            LbDegatEnnemi.Text = "0";
+            // 
+            // LbDegatHeros
+            // 
+            LbDegatHeros.AutoSize = true;
+            LbDegatHeros.BackColor = Color.Transparent;
+            LbDegatHeros.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LbDegatHeros.ForeColor = Color.White;
+            LbDegatHeros.Location = new Point(584, 63);
+            LbDegatHeros.Name = "LbDegatHeros";
+            LbDegatHeros.Size = new Size(22, 25);
+            LbDegatHeros.TabIndex = 14;
+            LbDegatHeros.Text = "0";
+            // 
+            // LbPhrase
+            // 
+            LbPhrase.AutoSize = true;
+            LbPhrase.BackColor = Color.Transparent;
+            LbPhrase.BorderStyle = BorderStyle.FixedSingle;
+            LbPhrase.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            LbPhrase.ForeColor = SystemColors.Control;
+            LbPhrase.Location = new Point(584, 439);
+            LbPhrase.Name = "LbPhrase";
+            LbPhrase.Size = new Size(24, 27);
+            LbPhrase.TabIndex = 15;
+            LbPhrase.Text = "0";
+            // 
             // FrmCombat
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -195,6 +235,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(LbPhrase);
+            Controls.Add(LbDegatHeros);
+            Controls.Add(LbDegatEnnemi);
             Controls.Add(BtnFuite5);
             Controls.Add(BtnFuite3);
             Controls.Add(BtnFuite2);
@@ -232,5 +275,8 @@
         private Button BtnFuite2;
         private Button BtnFuite3;
         private Button BtnFuite5;
+        private Label LbDegatEnnemi;
+        private Label LbDegatHeros;
+        private Label LbPhrase;
     }
 }

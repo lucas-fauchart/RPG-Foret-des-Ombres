@@ -57,6 +57,7 @@
             CbNomHeros.DropDownStyle = ComboBoxStyle.DropDownList;
             CbNomHeros.FlatStyle = FlatStyle.Flat;
             CbNomHeros.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            CbNomHeros.ForeColor = Color.White;
             CbNomHeros.FormattingEnabled = true;
             CbNomHeros.Location = new Point(203, 101);
             CbNomHeros.Name = "CbNomHeros";

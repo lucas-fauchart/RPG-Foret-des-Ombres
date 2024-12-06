@@ -35,7 +35,7 @@ namespace RPG_Forêt_des_Ombres
         public void AttaqueSpeciale(Personnage cible)
         {
             int degats = this.GetDegatPersonnage() + this.degatsSupplementaires;
-            cible.RecevoirDesDegats(degats);
+            //cible.RecevoirDesDegats(degats);
         }
         public override void Attaquer(Personnage cible)
         {

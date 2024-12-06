@@ -1,7 +1,10 @@
-﻿namespace RPG_Forêt_des_Ombres
+﻿using System.Windows.Forms;
+
+namespace RPG_Forêt_des_Ombres
 {
     public partial class FrmExploration : Form
     {
+        private int herosChoisie;
         internal FrmExploration()
         {
             InitializeComponent();
@@ -14,9 +17,13 @@
 
             LbExperience.Text = (Globale.choixHeros.GetExperience().ToString() + "/100");
             LbNiveau.Text = Globale.choixHeros.GetNiveau().ToString();
+            for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
+            {
+                Globale.lesHeros[herosChoisie].ReinisialiserDegats(Globale.lesHeros[herosChoisie].GetDegatsParDefault());
+            }
         }
 
-        private void BtnForet1_Click(object sender, EventArgs e)
+            private void BtnForet1_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             int nombreAleatoire = random.Next(0, 100);
@@ -192,9 +199,28 @@
             LbNiveau.Text = Globale.choixHeros.GetNiveau().ToString();
         }
 
-        private void BtnRetour_Click(object sender, EventArgs e)
+        private void BtnSauvegarder_Click(object sender, EventArgs e)
         {
+            foreach (Heros hero in Globale.lesHeros)
+            {
+                MessageBox.Show($"Nom: {hero.GetNomPersonnage()}, Description: {hero.GetDescriptionPersonnage()}, Points de Vie: {hero.GetExperience()}");
+            }
 
+            try
+            {
+                GestionSauvegarde.Sauvegarder(Globale.lesHeros);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la sauvegarde : " + ex.Message);
+            }
+        }
+
+        private void BtnSauvegarderQuitter_Click(object sender, EventArgs e)
+        {
+            FrmAccueil frmAccueil = new FrmAccueil();
+            frmAccueil.Show();
+            this.Close();
         }
     }
 }

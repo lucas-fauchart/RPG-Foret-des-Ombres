@@ -6,7 +6,6 @@ namespace RPG_Forêt_des_Ombres
     public partial class FrmAccueil : Form
     {
         Random random = new Random();
-        private SoundPlayer soundPlayer;
 
         public FrmAccueil()
         {
@@ -15,9 +14,43 @@ namespace RPG_Forêt_des_Ombres
 
         private void FrmAccueil_Load(object sender, EventArgs e)
         {
-            StartBackgroundMusic();
+            GestionMusique.StartBackgroundMusic();
 
             this.BackgroundImage = Image.FromFile("Images/Fond/FondAccueil.png");
+        }
+
+        private void BtnChargerPartie_Click(object sender, EventArgs e)
+        {
+            // Appel à la méthode de chargement
+            string cheminFichier = @"C:\Users\lucas\OneDrive\Documents\RPG Foret des Ombres\RPG Forêt des Ombres\bin\Debug\net6.0-windows\sauvegarde.json";
+            List<Heros> listeHeros = GestionSauvegarde.Charger();
+
+            if (listeHeros.Count > 0)
+            {
+                // Afficher ou manipuler les héros chargés
+                Globale.lesHeros = listeHeros;
+                MessageBox.Show("Héros chargés avec succès !");
+            }
+            else
+            {
+                MessageBox.Show("Aucun héros à charger.");
+            }
+
+            Globale.choixHeros = Globale.lesHeros[0];
+            //Permet d'ouvrir la fenêtre
+            FrmExploration frmExploration = new FrmExploration();
+            frmExploration.Show();
+            this.Hide();
+        }
+
+        private void BtnQuitter_Click(object sender, EventArgs e)
+        {
+            GestionMusique.StopBackgroundMusic();
+            Application.Exit();
+        }
+
+        private void BtnNouvellePartie_Click(object sender, EventArgs e)
+        {
             //Génére les héros
             Globale.lesHeros.Add(new Heros("Arthur", "Un jeune héros déterminé à prouver sa valeur.", 100, 100, 10, Image.FromFile("Images/arthur.png"), 0, 0, 10, Image.FromFile("Images/Fond/FondVillageArthur.png")));
             Globale.lesHeros.Add(new Heros("Edgar", "Un combattant musclé qui ne connaît pas la peur.", 120, 120, 5, Image.FromFile("Images/edgar.png"), 0, 0, 5, Image.FromFile("Images/Fond/FondVillageEdgar.png")));
@@ -52,39 +85,7 @@ namespace RPG_Forêt_des_Ombres
             Globale.lesPotions.Add(new Potion("Potion", "Nectar de vie", "Un nectar rare et précieux, capable de soigner les blessures graves en un instant.", Image.FromFile("Images/nectarVie.png"), 50));
 
             Globale.choixHeros = Globale.lesHeros[0];
-        }
 
-        private void BtnChargerPartie_Click(object sender, EventArgs e)
-        {
-            //Permet d'ouvrir la fenêtre
-            FrmExploration frmExploration = new FrmExploration();
-            frmExploration.Show();
-            this.Hide();
-        }
-
-        private void StartBackgroundMusic()
-        {
-            soundPlayer = new SoundPlayer("Images/MusiqueJeu.wav");
-
-            soundPlayer.PlayLooping();
-        }
-
-        private void StopBackgroundMusic()
-        {
-            if (soundPlayer != null)
-            {
-                soundPlayer.Stop();
-            }
-        }
-
-        private void BtnQuitter_Click(object sender, EventArgs e)
-        {
-            StopBackgroundMusic();
-            Application.Exit();
-        }
-
-        private void BtnNouvellePartie_Click(object sender, EventArgs e)
-        {
             //Permet d'ouvrir la fenêtre
             FrmExploration frmExploration = new FrmExploration();
             frmExploration.Show();

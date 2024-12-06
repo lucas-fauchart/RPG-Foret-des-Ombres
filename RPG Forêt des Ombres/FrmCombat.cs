@@ -27,7 +27,6 @@ namespace RPG_Forêt_des_Ombres
             this.BackgroundImage = Image.FromFile("Images/Fond/FondCombat.png");
             for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
             {
-                Globale.choixHeros.ReinisialiserDegats(Globale.lesHeros[herosChoisie].GetDegatsParDefault());
                 if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
                 {
                     Globale.choixHeros.NouveauPointsVie(Globale.choixHeros.GetPointsViePaeDefautl());
@@ -35,15 +34,14 @@ namespace RPG_Forêt_des_Ombres
                     LbPointsVieHeros.Text = $"{Globale.lesHeros[herosChoisie].GetPointsViePersonnage()} / {Globale.lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
                     Arme arme = Globale.unInventaire.OfType<Arme>().FirstOrDefault();
                     Globale.lesHeros[herosChoisie].AjouterDegat(arme.GetBonusDegat());
+                    MessageBox.Show(Globale.lesHeros[herosChoisie].GetDegatPersonnage().ToString());
                 }
             }
-
-
             ennemiChoisie = GenererEnnemiAleatoire();
             PbEnnemi.Image = Globale.lesEnnemis[ennemiChoisie].GetImagePersonnage();
-            Globale.lesEnnemis[ennemiChoisie].NouveauPointsVie(Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl());
-            LbPointsVieEnnemi.Text = $"{Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
-
+            LbDegatHeros.Text = "0";
+            LbDegatEnnemi.Text = "0";
+            LbPhrase.Text = "A VOUS D'ATTAQUER L'ENNEMI";
         }
 
         private void PbHeros_Click(object sender, EventArgs e)
@@ -52,18 +50,19 @@ namespace RPG_Forêt_des_Ombres
             frmInventairePotions.Show();
         }
 
-        private void PbEnnemi_Click(object sender, EventArgs e)
+        private async void PbEnnemi_Click(object sender, EventArgs e)
         {
             for (herosChoisie = 0; herosChoisie < Globale.lesHeros.Count; herosChoisie++)
             {
                 if (Globale.choixHeros.GetNomPersonnage() == Globale.lesHeros[herosChoisie].GetNomPersonnage())
                 {
-                    Globale.lesHeros[herosChoisie].RecevoirDesDegats(Globale.choixHeros.GetDegatPersonnage());
+                    Globale.lesHeros[herosChoisie].Degats(Globale.choixHeros.GetDegatPersonnage());
                     // Le héros attaque l'ennemi choisi
                     Globale.lesHeros[herosChoisie].Attaquer(Globale.lesEnnemis[ennemiChoisie]);
 
                     // Mettre à jour l'affichage des points de vie de l'ennemi
                     LbPointsVieEnnemi.Text = $"{Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage()} / {Globale.lesEnnemis[ennemiChoisie].GetPointsViePaeDefautl()}";
+                    LbDegatHeros.Text = "- " + Globale.lesHeros[herosChoisie].GetDegatPersonnage() + " PV";
 
                     // Vérifier si l'ennemi est battu
                     if (Globale.lesEnnemis[ennemiChoisie].GetPointsViePersonnage() <= 0)
@@ -83,48 +82,47 @@ namespace RPG_Forêt_des_Ombres
                     {
                         int nombreAleatoireDegatEnnemi1 = random.Next(3, 7);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi1);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi2")
                     {
                         int nombreAleatoireDegatEnnemi2 = random.Next(4, 8);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi2);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi3")
                     {
                         int nombreAleatoireDegatEnnemi3 = random.Next(6, 12);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi3);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi4")
                     {
                         int nombreAleatoireDegatEnnemi4 = random.Next(8, 15);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi4);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi5")
                     {
                         int nombreAleatoireDegatEnnemi5 = random.Next(10, 20);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi5);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi6")
                     {
                         int nombreAleatoireDegatEnnemi6 = random.Next(12, 25);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi6);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
                     else if (Globale.lesEnnemis[ennemiChoisie].GetNomPersonnage() == "Ennemi7")
                     {
                         int nombreAleatoireDegatEnnemi7 = random.Next(15, 30);
                         Globale.lesEnnemis[ennemiChoisie].Degats(nombreAleatoireDegatEnnemi7);
-                        Globale.lesEnnemis[ennemiChoisie].RecevoirDesDegats(Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage());
                     }
 
+                    PbEnnemi.Enabled = false;
+                    LbPhrase.Text = "L'ENNEMI VA VOUS ATTAQUER";
+                    await Task.Delay(2000);
 
                     Globale.lesEnnemis[ennemiChoisie].Attaquer(Globale.lesHeros[herosChoisie]);
                     LbPointsVieHeros.Text = $"{Globale.lesHeros[herosChoisie].GetPointsViePersonnage()} / {Globale.lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
+                    LbDegatEnnemi.Text = "- " + Globale.lesEnnemis[ennemiChoisie].GetDegatPersonnage() + " PV";
+                    LbPhrase.Text = "A VOTRE TOUR D'ATTAQUER L'ENNEMI";
+                    PbEnnemi.Enabled = true;
 
                     if (Globale.lesHeros[herosChoisie].GetPointsViePersonnage() <= 0)
                     {
@@ -166,7 +164,7 @@ namespace RPG_Forêt_des_Ombres
 
         public void MettreAJourPointsVieHeros()
         {
-            LbPointsVieHeros.Text = $"{Globale.choixHeros.GetPointsViePersonnage()} / {Globale.choixHeros.GetPointsViePaeDefautl()}";
+            LbPointsVieHeros.Text = $"{Globale.lesHeros[herosChoisie].GetPointsViePersonnage()} / {Globale.lesHeros[herosChoisie].GetPointsViePaeDefautl()}";
         }
 
         private void BtnFuite2_Click(object sender, EventArgs e)

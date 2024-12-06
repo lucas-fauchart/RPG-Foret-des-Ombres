@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using Newtonsoft.Json;
 
 namespace RPG_Forêt_des_Ombres
 {
@@ -15,6 +17,7 @@ namespace RPG_Forêt_des_Ombres
         private int experiencePourNiveauSuivant;
         private int degatsParDefault;
         private Image fondVillageHeros;
+        public string ImagePersonnageBase64 { get; set; }
 
         //Constructeur
         public Heros(string nomPersonnage, string descriptionPersonnage, int lesPointsViePersonnage, int lesPointsVieParDefault, int lesDegatsPersonnage, Image uneImagePersonnage, int uneExperience, int niveau, int lesDegatsParDefault, Image unFondVillageHeros /*Dictionary<string, int> unInventaire*/) :
@@ -26,6 +29,7 @@ namespace RPG_Forêt_des_Ombres
             this.experiencePourNiveauSuivant = 100;
             this.degatsParDefault = lesDegatsParDefault;
             this.fondVillageHeros = unFondVillageHeros;
+            ImagePersonnageBase64 = ImageToBase64(fondVillageHeros);  // Convertir l'image en base64
         }
         //Getters
         public int GetExperience()
@@ -104,5 +108,33 @@ namespace RPG_Forêt_des_Ombres
                 this.inventaire.Add(objet.GetNomObjet(), 1);
             }
         }*/
+
+        // Méthode pour convertir une image en une chaîne base64
+        private string ImageToBase64(Image image)
+        {
+            if (image != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    image.Save(ms, image.RawFormat);  // Sauvegarder l'image dans un MemoryStream
+                    byte[] imageBytes = ms.ToArray();
+                    return Convert.ToBase64String(imageBytes);  // Convertir les octets en chaîne base64
+                }
+            }
+            return null;  // Retourner null si l'image est absente
+        }
+
+        // Méthode pour convertir une chaîne base64 en une image
+        public Image Base64ToImage(string base64String)
+        {
+            if (string.IsNullOrEmpty(base64String))
+                return null;
+
+            byte[] imageBytes = Convert.FromBase64String(base64String);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                return Image.FromStream(ms);  // Convertir en Image
+            }
+        }
     }
 }
